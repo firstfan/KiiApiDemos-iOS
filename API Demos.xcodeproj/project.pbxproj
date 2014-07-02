@@ -22,6 +22,14 @@
 		2054D0EB1963E29C00F3CF67 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2054D0CA1963E29C00F3CF67 /* UIKit.framework */; };
 		2054D0F31963E29C00F3CF67 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2054D0F11963E29C00F3CF67 /* InfoPlist.strings */; };
 		2054D0F51963E29C00F3CF67 /* API_DemosTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2054D0F41963E29C00F3CF67 /* API_DemosTests.m */; };
+		20968B0A1963E46B0021BBE2 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20968B091963E46B0021BBE2 /* MobileCoreServices.framework */; };
+		20968B0C1963E4730021BBE2 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20968B0B1963E4730021BBE2 /* Accounts.framework */; };
+		20968B0E1963E47B0021BBE2 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20968B0D1963E47B0021BBE2 /* Social.framework */; };
+		20968B101963E4830021BBE2 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20968B0F1963E4830021BBE2 /* Security.framework */; };
+		20968B121963E48B0021BBE2 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20968B111963E48B0021BBE2 /* ImageIO.framework */; };
+		20968B141963E4930021BBE2 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 20968B131963E4930021BBE2 /* libsqlite3.dylib */; };
+		20968B161963E4A90021BBE2 /* KiiSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20968B151963E4A90021BBE2 /* KiiSDK.framework */; };
+		20968B181963E4B70021BBE2 /* KiiAnalytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20968B171963E4B70021BBE2 /* KiiAnalytics.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +64,14 @@
 		2054D0F01963E29C00F3CF67 /* API DemosTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "API DemosTests-Info.plist"; sourceTree = "<group>"; };
 		2054D0F21963E29C00F3CF67 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2054D0F41963E29C00F3CF67 /* API_DemosTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = API_DemosTests.m; sourceTree = "<group>"; };
+		20968B091963E46B0021BBE2 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		20968B0B1963E4730021BBE2 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		20968B0D1963E47B0021BBE2 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		20968B0F1963E4830021BBE2 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		20968B111963E48B0021BBE2 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		20968B131963E4930021BBE2 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		20968B151963E4A90021BBE2 /* KiiSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = KiiSDK.framework; sourceTree = "<group>"; };
+		20968B171963E4B70021BBE2 /* KiiAnalytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = KiiAnalytics.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,9 +79,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				20968B141963E4930021BBE2 /* libsqlite3.dylib in Frameworks */,
+				20968B121963E48B0021BBE2 /* ImageIO.framework in Frameworks */,
+				20968B101963E4830021BBE2 /* Security.framework in Frameworks */,
+				20968B181963E4B70021BBE2 /* KiiAnalytics.framework in Frameworks */,
+				20968B0E1963E47B0021BBE2 /* Social.framework in Frameworks */,
+				20968B0C1963E4730021BBE2 /* Accounts.framework in Frameworks */,
+				20968B0A1963E46B0021BBE2 /* MobileCoreServices.framework in Frameworks */,
 				2054D0C91963E29C00F3CF67 /* CoreGraphics.framework in Frameworks */,
 				2054D0CB1963E29C00F3CF67 /* UIKit.framework in Frameworks */,
 				2054D0C71963E29C00F3CF67 /* Foundation.framework in Frameworks */,
+				20968B161963E4A90021BBE2 /* KiiSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -104,6 +128,14 @@
 		2054D0C51963E29C00F3CF67 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				20968B171963E4B70021BBE2 /* KiiAnalytics.framework */,
+				20968B151963E4A90021BBE2 /* KiiSDK.framework */,
+				20968B131963E4930021BBE2 /* libsqlite3.dylib */,
+				20968B111963E48B0021BBE2 /* ImageIO.framework */,
+				20968B0F1963E4830021BBE2 /* Security.framework */,
+				20968B0D1963E47B0021BBE2 /* Social.framework */,
+				20968B0B1963E4730021BBE2 /* Accounts.framework */,
+				20968B091963E46B0021BBE2 /* MobileCoreServices.framework */,
 				2054D0C61963E29C00F3CF67 /* Foundation.framework */,
 				2054D0C81963E29C00F3CF67 /* CoreGraphics.framework */,
 				2054D0CA1963E29C00F3CF67 /* UIKit.framework */,
@@ -383,6 +415,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "API Demos/API Demos-Prefix.pch";
 				INFOPLIST_FILE = "API Demos/API Demos-Info.plist";
@@ -396,6 +432,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "API Demos/API Demos-Prefix.pch";
 				INFOPLIST_FILE = "API Demos/API Demos-Info.plist";
@@ -463,6 +503,7 @@
 				2054D0FA1963E29C00F3CF67 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2054D0FB1963E29C00F3CF67 /* Build configuration list for PBXNativeTarget "API DemosTests" */ = {
 			isa = XCConfigurationList;
@@ -471,6 +512,7 @@
 				2054D0FD1963E29C00F3CF67 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
