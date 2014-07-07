@@ -7,12 +7,20 @@
 //
 
 #import "KAAppDelegate.h"
+#import "KAGlobal.h"
 
 @implementation KAAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    KAGlobal *global = [KAGlobal getInstance];
+    [Kii beginWithID:global.currentApp.appId
+              andKey:global.currentApp.appKey
+             andSite:global.currentApp.site];
+    [KiiAnalytics beginWithID:global.currentApp.appId
+                       andKey:global.currentApp.appKey
+                      andSite:global.currentApp.analyticsSite];
     return YES;
 }
 							
