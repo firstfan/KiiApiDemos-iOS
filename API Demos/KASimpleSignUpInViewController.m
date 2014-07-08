@@ -2,8 +2,8 @@
 //  KASimpleSignUpInViewController.m
 //  API Demos
 //
-//  Created by Evan JIANG on 14-7-8.
-//  Copyright (c) 2014年 Kii Inc. All rights reserved.
+//  Created by Evan JIANG on 14-7-6.
+//  Copyright (c) 2014 Kii Inc. All rights reserved.
 //
 
 #import "KASimpleSignUpInViewController.h"
@@ -11,6 +11,7 @@
 #import "iToast.h"
 #import <KiiSDK/Kii.h>
 #import "KAGlobal.h"
+#import "KAViewUtils.h"
 
 @interface KASimpleSignUpInViewController ()
 
@@ -34,7 +35,7 @@
     [super viewDidLoad];
 
     if ([KiiUser currentUser] != nil) {
-        [[iToast makeText:@"You are already signed in."] show];
+        [KAViewUtils alertForAlreadyLogin];
     }
 }
 
@@ -67,6 +68,7 @@
     KiiUser *user = [KiiUser userWithUsername:[self.usernameField text] andPassword:[self.passwordField text]];
     [user performRegistrationWithBlock:^(KiiUser *user, NSError *error) {
         [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+
         if (error == nil) {
             [[KAGlobal getInstance] setToken:user.accessToken];
             [[iToast makeText:@"Register successfully"] show];
