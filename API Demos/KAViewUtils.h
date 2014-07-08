@@ -15,4 +15,5 @@
 + (UIView *)resignFirstResponder:(UIView *)theView;
 + (void)alertForAlreadyLogin;
 + (UIActionSheet *)showSelectCountryCode;
++ (void)makeSureAlreadyLogin:(UINavigationController *)nav;
 @end

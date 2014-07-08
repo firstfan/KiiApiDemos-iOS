@@ -32,6 +32,8 @@
 		2099FD57196AFFF9005062F0 /* iToast.m in Sources */ = {isa = PBXBuildFile; fileRef = 2099FD54196AFFF9005062F0 /* iToast.m */; };
 		2099FD58196AFFF9005062F0 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 2099FD56196AFFF9005062F0 /* MBProgressHUD.m */; };
 		2099FD5B196B116A005062F0 /* KASignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2099FD5A196B116A005062F0 /* KASignUpViewController.m */; };
+		209AD7B8196C40F400DE5235 /* KAUserAttributesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 209AD7B7196C40F400DE5235 /* KAUserAttributesViewController.m */; };
+		209AD7BB196C480E00DE5235 /* KALogoutDeleteUserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 209AD7BA196C480E00DE5235 /* KALogoutDeleteUserViewController.m */; };
 		20B45E9819693EB500CA2F03 /* KASettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20B45E9719693EB500CA2F03 /* KASettingsViewController.m */; };
 		20B45E9B1969404C00CA2F03 /* KAViewUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 20B45E9A1969404C00CA2F03 /* KAViewUtils.m */; };
 		20B45E9E196940E800CA2F03 /* KAAppConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 20B45E9D196940E800CA2F03 /* KAAppConfig.m */; };
@@ -83,6 +85,10 @@
 		2099FD56196AFFF9005062F0 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		2099FD59196B116A005062F0 /* KASignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KASignUpViewController.h; sourceTree = "<group>"; };
 		2099FD5A196B116A005062F0 /* KASignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KASignUpViewController.m; sourceTree = "<group>"; };
+		209AD7B6196C40F400DE5235 /* KAUserAttributesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KAUserAttributesViewController.h; sourceTree = "<group>"; };
+		209AD7B7196C40F400DE5235 /* KAUserAttributesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KAUserAttributesViewController.m; sourceTree = "<group>"; };
+		209AD7B9196C480E00DE5235 /* KALogoutDeleteUserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KALogoutDeleteUserViewController.h; sourceTree = "<group>"; };
+		209AD7BA196C480E00DE5235 /* KALogoutDeleteUserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KALogoutDeleteUserViewController.m; sourceTree = "<group>"; };
 		20B45E9619693EB500CA2F03 /* KASettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KASettingsViewController.h; sourceTree = "<group>"; };
 		20B45E9719693EB500CA2F03 /* KASettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KASettingsViewController.m; sourceTree = "<group>"; };
 		20B45E991969404C00CA2F03 /* KAViewUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KAViewUtils.h; sourceTree = "<group>"; };
@@ -236,6 +242,10 @@
 				2099FD5A196B116A005062F0 /* KASignUpViewController.m */,
 				20E91E04196B5F8A0062B9EF /* KASignInViewController.h */,
 				20E91E05196B5F8A0062B9EF /* KASignInViewController.m */,
+				209AD7B6196C40F400DE5235 /* KAUserAttributesViewController.h */,
+				209AD7B7196C40F400DE5235 /* KAUserAttributesViewController.m */,
+				209AD7B9196C480E00DE5235 /* KALogoutDeleteUserViewController.h */,
+				209AD7BA196C480E00DE5235 /* KALogoutDeleteUserViewController.m */,
 			);
 			name = "User management";
 			sourceTree = "<group>";
@@ -346,8 +356,10 @@
 				20B45EA11969435100CA2F03 /* KAGlobal.m in Sources */,
 				2054D0D31963E29C00F3CF67 /* main.m in Sources */,
 				2099FD51196AFCC5005062F0 /* KASimpleSignUpInViewController.m in Sources */,
+				209AD7B8196C40F400DE5235 /* KAUserAttributesViewController.m in Sources */,
 				2099FD5B196B116A005062F0 /* KASignUpViewController.m in Sources */,
 				2099FD57196AFFF9005062F0 /* iToast.m in Sources */,
+				209AD7BB196C480E00DE5235 /* KALogoutDeleteUserViewController.m in Sources */,
 				20E91E06196B5F8A0062B9EF /* KASignInViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -7,6 +7,8 @@
 //
 
 #import "KAViewUtils.h"
+#import <KiiSDK/Kii.h>
+#import "iToast.h"
 
 @implementation KAViewUtils
 
@@ -51,4 +53,12 @@
     return actionSheet;
 }
 
+
++ (void)makeSureAlreadyLogin:(UINavigationController *)nav
+{
+    if ([KiiUser currentUser] == nil) {
+        [[iToast makeText:@"You need to login first."] show];
+        [nav popViewControllerAnimated:YES];
+    }
+}
 @end
