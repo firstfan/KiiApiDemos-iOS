@@ -16,5 +16,4 @@
 @property (nonatomic) KiiAnalyticsSite  analyticsSite;
 @property (retain, nonatomic) NSString  *appId;
 @property (retain, nonatomic) NSString  *appKey;
-
 @end

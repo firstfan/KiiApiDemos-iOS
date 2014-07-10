@@ -332,6 +332,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="9Vf-b6-zA0" kind="push" id="VPv-DD-euU"/>
+                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -346,6 +349,125 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zo0-8P-qYc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1608" y="-15"/>
+        </scene>
+        <!--Integrate View Controller - SNS Integration-->
+        <scene sceneID="i7g-Ei-hKd">
+            <objects>
+                <viewController id="9Vf-b6-zA0" customClass="KASNSIntegrateViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="gDf-gx-kI1"/>
+                        <viewControllerLayoutGuide type="bottom" id="j4i-FG-Qep"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Rgd-d2-3RB">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o7v-DJ-iaY">
+                                <rect key="frame" x="20" y="81" width="280" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="d0a-Tj-bkt"/>
+                                </constraints>
+                                <state key="normal" title="Login with Facebook">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="loginWithFacebook:" destination="9Vf-b6-zA0" eventType="touchUpInside" id="TRn-XN-wet"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3bF-Sk-KTa">
+                                <rect key="frame" x="20" y="119" width="280" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="Wbe-mo-jMz"/>
+                                </constraints>
+                                <state key="normal" title="Link Kii Accout to Facebook">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="linkToFacebook:" destination="9Vf-b6-zA0" eventType="touchUpInside" id="HpG-hV-Ce5"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O2X-Pz-1C4">
+                                <rect key="frame" x="20" y="157" width="280" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="9SJ-NI-UaZ"/>
+                                </constraints>
+                                <state key="normal" title="Unlink from Facebook">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="unlinkFromFacebook:" destination="9Vf-b6-zA0" eventType="touchUpInside" id="OvT-et-RyZ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HSv-2r-C0S">
+                                <rect key="frame" x="20" y="224" width="280" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="UXF-G8-Eli"/>
+                                </constraints>
+                                <state key="normal" title="Login with Twitter">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="loginWithTwitter:" destination="9Vf-b6-zA0" eventType="touchUpInside" id="cgn-J9-qkT"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BSp-l8-wek">
+                                <rect key="frame" x="20" y="262" width="280" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="CDD-H5-S9n"/>
+                                </constraints>
+                                <state key="normal" title="Link Kii Account to Twitter">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="linkToTwitter:" destination="9Vf-b6-zA0" eventType="touchUpInside" id="Lrc-4n-hlz"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lle-LW-L2W">
+                                <rect key="frame" x="20" y="300" width="280" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="hnk-0B-nns"/>
+                                </constraints>
+                                <state key="normal" title="Unlink from Twitter">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="unlinkFromTwitter:" destination="9Vf-b6-zA0" eventType="touchUpInside" id="kCc-aP-MqN"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="HSv-2r-C0S" secondAttribute="trailing" constant="20" id="0xn-8W-7UE"/>
+                            <constraint firstItem="Lle-LW-L2W" firstAttribute="leading" secondItem="Rgd-d2-3RB" secondAttribute="leading" constant="20" id="167-jT-y7v"/>
+                            <constraint firstItem="Lle-LW-L2W" firstAttribute="top" secondItem="BSp-l8-wek" secondAttribute="bottom" constant="8" id="2C3-1O-AYj"/>
+                            <constraint firstItem="BSp-l8-wek" firstAttribute="leading" secondItem="Rgd-d2-3RB" secondAttribute="leading" constant="20" id="A7g-Fe-zPI"/>
+                            <constraint firstAttribute="trailing" secondItem="o7v-DJ-iaY" secondAttribute="trailing" constant="20" id="BDM-OM-2fJ"/>
+                            <constraint firstAttribute="trailing" secondItem="BSp-l8-wek" secondAttribute="trailing" constant="20" id="Hta-SG-3JJ"/>
+                            <constraint firstAttribute="trailing" secondItem="Lle-LW-L2W" secondAttribute="trailing" constant="20" id="JFX-Qa-zfy"/>
+                            <constraint firstItem="HSv-2r-C0S" firstAttribute="top" secondItem="O2X-Pz-1C4" secondAttribute="bottom" constant="37" id="JQG-Xe-84q"/>
+                            <constraint firstItem="BSp-l8-wek" firstAttribute="top" secondItem="HSv-2r-C0S" secondAttribute="bottom" constant="8" id="MPy-KN-R1p"/>
+                            <constraint firstAttribute="trailing" secondItem="3bF-Sk-KTa" secondAttribute="trailing" constant="20" id="V18-5q-cvQ"/>
+                            <constraint firstItem="3bF-Sk-KTa" firstAttribute="top" secondItem="o7v-DJ-iaY" secondAttribute="bottom" constant="8" id="XYP-iM-wmN"/>
+                            <constraint firstItem="HSv-2r-C0S" firstAttribute="leading" secondItem="Rgd-d2-3RB" secondAttribute="leading" constant="20" id="ZEd-Ae-knq"/>
+                            <constraint firstAttribute="trailing" secondItem="O2X-Pz-1C4" secondAttribute="trailing" constant="20" id="bp6-Wi-AUd"/>
+                            <constraint firstItem="o7v-DJ-iaY" firstAttribute="top" secondItem="gDf-gx-kI1" secondAttribute="bottom" constant="17" id="dta-mn-rtv"/>
+                            <constraint firstItem="O2X-Pz-1C4" firstAttribute="leading" secondItem="Rgd-d2-3RB" secondAttribute="leading" constant="20" id="kiw-sk-HDl"/>
+                            <constraint firstItem="o7v-DJ-iaY" firstAttribute="leading" secondItem="Rgd-d2-3RB" secondAttribute="leading" constant="20" id="uAD-BF-4x6"/>
+                            <constraint firstItem="O2X-Pz-1C4" firstAttribute="top" secondItem="3bF-Sk-KTa" secondAttribute="bottom" constant="8" id="uU6-o9-qem"/>
+                            <constraint firstItem="3bF-Sk-KTa" firstAttribute="leading" secondItem="Rgd-d2-3RB" secondAttribute="leading" constant="20" id="w2Z-Bx-F3L"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="SNS Integration" id="OYf-ki-ZBL"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pUf-5T-GkF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3849" y="-15"/>
         </scene>
         <!--Simple Sign Up In View Controller - Sign up or sign in-->
         <scene sceneID="N47-pY-1qA">

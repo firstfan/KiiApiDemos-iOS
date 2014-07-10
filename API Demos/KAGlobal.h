@@ -19,6 +19,10 @@
 #define CN_APP          1
 #define CUSTOM_APP      9
 
+#define FacebookAppID   @"1440773252805693"
+#define TwitterKey      @"nxRS6qwgmkuty79umuBhug"
+#define TwitterSecrect  @"YWWw1kBhf0hSPzbSs4uHKeMtE93PvaM7gXN6d33S2U"
+
 @interface KAGlobal : NSObject
 
 @property (retain, nonatomic) KAAppConfig   *currentApp;
@@ -28,8 +32,7 @@
 @property (retain, nonatomic) NSString      *token;
 @property (nonatomic) int                   currentAppSelection;
 
-
 + (KAGlobal *)getInstance;
 - (void)switchApp;
-- (void)saveCustomAppSite:(int)server appId:(NSString*)appId appKey:(NSString*)appKey;
+- (void)saveCustomAppSite:(int)server appId:(NSString *)appId appKey:(NSString *)appKey;
 @end

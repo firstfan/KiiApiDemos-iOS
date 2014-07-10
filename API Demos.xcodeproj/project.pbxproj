@@ -38,6 +38,7 @@
 		20B45E9B1969404C00CA2F03 /* KAViewUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 20B45E9A1969404C00CA2F03 /* KAViewUtils.m */; };
 		20B45E9E196940E800CA2F03 /* KAAppConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 20B45E9D196940E800CA2F03 /* KAAppConfig.m */; };
 		20B45EA11969435100CA2F03 /* KAGlobal.m in Sources */ = {isa = PBXBuildFile; fileRef = 20B45EA01969435100CA2F03 /* KAGlobal.m */; };
+		20D6185F196F4ADD00AF8A4A /* KASNSIntegrateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20D6185E196F4ADD00AF8A4A /* KASNSIntegrateViewController.m */; };
 		20E91E06196B5F8A0062B9EF /* KASignInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20E91E05196B5F8A0062B9EF /* KASignInViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -97,6 +98,8 @@
 		20B45E9D196940E800CA2F03 /* KAAppConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KAAppConfig.m; sourceTree = "<group>"; };
 		20B45E9F1969435100CA2F03 /* KAGlobal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KAGlobal.h; sourceTree = "<group>"; };
 		20B45EA01969435100CA2F03 /* KAGlobal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KAGlobal.m; sourceTree = "<group>"; };
+		20D6185D196F4ADD00AF8A4A /* KASNSIntegrateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KASNSIntegrateViewController.h; sourceTree = "<group>"; };
+		20D6185E196F4ADD00AF8A4A /* KASNSIntegrateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KASNSIntegrateViewController.m; sourceTree = "<group>"; };
 		20E91E04196B5F8A0062B9EF /* KASignInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KASignInViewController.h; sourceTree = "<group>"; };
 		20E91E05196B5F8A0062B9EF /* KASignInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KASignInViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -246,6 +249,8 @@
 				209AD7B7196C40F400DE5235 /* KAUserAttributesViewController.m */,
 				209AD7B9196C480E00DE5235 /* KALogoutDeleteUserViewController.h */,
 				209AD7BA196C480E00DE5235 /* KALogoutDeleteUserViewController.m */,
+				20D6185D196F4ADD00AF8A4A /* KASNSIntegrateViewController.h */,
+				20D6185E196F4ADD00AF8A4A /* KASNSIntegrateViewController.m */,
 			);
 			name = "User management";
 			sourceTree = "<group>";
@@ -359,6 +364,7 @@
 				209AD7B8196C40F400DE5235 /* KAUserAttributesViewController.m in Sources */,
 				2099FD5B196B116A005062F0 /* KASignUpViewController.m in Sources */,
 				2099FD57196AFFF9005062F0 /* iToast.m in Sources */,
+				20D6185F196F4ADD00AF8A4A /* KASNSIntegrateViewController.m in Sources */,
 				209AD7BB196C480E00DE5235 /* KALogoutDeleteUserViewController.m in Sources */,
 				20E91E06196B5F8A0062B9EF /* KASignInViewController.m in Sources */,
 			);
