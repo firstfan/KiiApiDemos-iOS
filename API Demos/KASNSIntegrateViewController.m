@@ -141,7 +141,11 @@
 {
     NSArray *twitterAccounts = [self getTwitterAccounts];
 
-    if ((twitterAccounts != nil) && ([twitterAccounts count] == 0)) {
+    if (twitterAccounts == nil) {
+        return;
+    }
+    
+    if ([twitterAccounts count] == 0) {
         [[iToast makeText:@"There's no Twitter account existing now."] show];
         return;
     }
@@ -161,9 +165,17 @@
 
 - (IBAction)linkToTwitter:(id)sender
 {
+    if ([KiiUser currentUser] == nil) {
+        [[iToast makeText:@"You need to login first."] show];
+        return;
+    }
     NSArray *twitterAccounts = [self getTwitterAccounts];
 
-    if ((twitterAccounts != nil) && ([twitterAccounts count] == 0)) {
+    if (twitterAccounts == nil) {
+        return;
+    }
+    
+    if ([twitterAccounts count] == 0) {
         [[iToast makeText:@"There's no Twitter account existing now."] show];
         return;
     }
@@ -181,6 +193,10 @@
 
 - (IBAction)unlinkFromTwitter:(id)sender
 {
+    if ([KiiUser currentUser] == nil) {
+        [[iToast makeText:@"You need to login first."] show];
+        return;
+    }
     [KiiSocialConnect unLinkCurrentUserWithNetwork:kiiSCNTwitter
     withDelegate:self
     andCallback :@selector(myAccountUnlinkFinished:usingNetwork:withError:)];
