@@ -1073,7 +1073,7 @@ Phone is not verified</string>
         <scene sceneID="9VU-lS-M6a">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="HaI-Ny-1Zj" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="APIs" id="kiX-9Y-nho"/>
+                    <tabBarItem key="tabBarItem" title="APIs" image="tab_api.png" id="kiX-9Y-nho"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="USN-yp-ZR1">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -1171,169 +1171,185 @@ Phone is not verified</string>
                                 <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RLR-dh-HZd">
-                                        <rect key="frame" x="20" y="20" width="280" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mdo-oK-7KI">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="431"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P4k-Ij-4uT">
+                                                <rect key="frame" x="20" y="381" width="280" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="gdC-Z0-QYx"/>
+                                                </constraints>
+                                                <state key="normal" title="Save note to group bucket">
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="saveNoteToGroupBucket:" destination="oOj-l4-Cqf" eventType="touchUpInside" id="Uso-9K-3RN"/>
+                                                </connections>
+                                            </button>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nEy-9J-M2A">
+                                                <rect key="frame" x="20" y="142" width="280" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="u5I-lG-Kld"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="oOj-l4-Cqf" id="IPA-Hi-hb1"/>
+                                                </connections>
+                                            </textField>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ghM-hM-uiP">
+                                                <rect key="frame" x="20" y="343" width="280" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="k1s-Uy-kY8"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="oOj-l4-Cqf" id="Eei-eP-dvh"/>
+                                                </connections>
+                                            </textField>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5cw-Ow-9wo">
+                                                <rect key="frame" x="20" y="20" width="280" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="hfQ-JM-JHw"/>
+                                                </constraints>
+                                                <state key="normal" title="Create a group">
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="createGroup:" destination="oOj-l4-Cqf" eventType="touchUpInside" id="V4q-ST-rAX"/>
+                                                </connections>
+                                            </button>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No selected group yet" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Lz-aY-2Op">
+                                                <rect key="frame" x="20" y="113" width="280" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="3hu-3X-oSh"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qkn-uP-Nd0">
+                                                <rect key="frame" x="20" y="79" width="280" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="Y6F-xO-X21"/>
+                                                </constraints>
+                                                <state key="normal" title="Select an owned group">
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="selectOwnedGroup:" destination="oOj-l4-Cqf" eventType="touchUpInside" id="TL5-tf-C8g"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Itv-QE-iae">
+                                                <rect key="frame" x="20" y="276" width="280" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="gkm-sb-n0H"/>
+                                                </constraints>
+                                                <state key="normal" title="Select a group with me">
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="selectGroupWithMe:" destination="oOj-l4-Cqf" eventType="touchUpInside" id="ezd-k0-nip"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VG5-Sh-BeA">
+                                                <rect key="frame" x="20" y="180" width="280" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="We6-1N-aPH"/>
+                                                </constraints>
+                                                <state key="normal" title="Add to group">
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="addToGroup:" destination="oOj-l4-Cqf" eventType="touchUpInside" id="AtV-2w-n2p"/>
+                                                </connections>
+                                            </button>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No selected group yet" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Vx-a4-0yx">
+                                                <rect key="frame" x="20" y="314" width="280" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="qeK-LW-Bie"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rfL-VI-4Fb">
+                                                <rect key="frame" x="20" y="218" width="280" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="NYj-ma-h2V"/>
+                                                </constraints>
+                                                <state key="normal" title="List group members">
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="listGroupMembers:" destination="oOj-l4-Cqf" eventType="touchUpInside" id="RzU-Hv-Nes"/>
+                                                </connections>
+                                            </button>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="or" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OrL-09-aAZ">
+                                                <rect key="frame" x="152" y="54" width="16" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="16" id="fh7-J5-ud4"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="sK7-u1-O4l"/>
+                                            <constraint firstAttribute="trailing" secondItem="5Lz-aY-2Op" secondAttribute="trailing" constant="20" id="1Ja-Ht-80S"/>
+                                            <constraint firstAttribute="width" constant="320" id="28b-75-XOa"/>
+                                            <constraint firstItem="Qkn-uP-Nd0" firstAttribute="top" secondItem="OrL-09-aAZ" secondAttribute="bottom" constant="4" id="67r-vm-2bM"/>
+                                            <constraint firstItem="0Vx-a4-0yx" firstAttribute="leading" secondItem="Mdo-oK-7KI" secondAttribute="leading" constant="20" id="A8T-9T-kDQ"/>
+                                            <constraint firstItem="ghM-hM-uiP" firstAttribute="leading" secondItem="Mdo-oK-7KI" secondAttribute="leading" constant="20" id="CbL-L3-FeD"/>
+                                            <constraint firstItem="Itv-QE-iae" firstAttribute="leading" secondItem="Mdo-oK-7KI" secondAttribute="leading" constant="20" id="CjF-8Q-Mlm"/>
+                                            <constraint firstAttribute="trailing" secondItem="Itv-QE-iae" secondAttribute="trailing" constant="20" id="D5u-Xg-oUw"/>
+                                            <constraint firstAttribute="bottom" secondItem="P4k-Ij-4uT" secondAttribute="bottom" constant="20" id="G2u-xg-EHy"/>
+                                            <constraint firstAttribute="trailing" secondItem="nEy-9J-M2A" secondAttribute="trailing" constant="20" id="GcP-D2-GU6"/>
+                                            <constraint firstItem="5cw-Ow-9wo" firstAttribute="leading" secondItem="Mdo-oK-7KI" secondAttribute="leading" constant="20" id="Mla-vP-cdK"/>
+                                            <constraint firstAttribute="centerX" secondItem="OrL-09-aAZ" secondAttribute="centerX" id="OS6-ZE-Jtn"/>
+                                            <constraint firstAttribute="trailing" secondItem="Qkn-uP-Nd0" secondAttribute="trailing" constant="20" id="Pov-o3-Jpb"/>
+                                            <constraint firstItem="rfL-VI-4Fb" firstAttribute="top" secondItem="VG5-Sh-BeA" secondAttribute="bottom" constant="8" id="Snb-dk-OL9"/>
+                                            <constraint firstAttribute="trailing" secondItem="P4k-Ij-4uT" secondAttribute="trailing" constant="20" id="T9d-zh-KI0"/>
+                                            <constraint firstAttribute="trailing" secondItem="5cw-Ow-9wo" secondAttribute="trailing" constant="20" id="TH1-xn-xo2"/>
+                                            <constraint firstItem="5cw-Ow-9wo" firstAttribute="top" secondItem="Mdo-oK-7KI" secondAttribute="top" constant="20" id="VqS-xK-lqB"/>
+                                            <constraint firstItem="rfL-VI-4Fb" firstAttribute="leading" secondItem="Mdo-oK-7KI" secondAttribute="leading" constant="20" id="Wl8-ey-jui"/>
+                                            <constraint firstItem="Qkn-uP-Nd0" firstAttribute="leading" secondItem="Mdo-oK-7KI" secondAttribute="leading" constant="20" id="Xgg-Lo-Aif"/>
+                                            <constraint firstItem="5Lz-aY-2Op" firstAttribute="leading" secondItem="Mdo-oK-7KI" secondAttribute="leading" constant="20" id="YUX-cu-8vn"/>
+                                            <constraint firstItem="OrL-09-aAZ" firstAttribute="top" secondItem="5cw-Ow-9wo" secondAttribute="bottom" constant="4" id="YaR-zx-PUn"/>
+                                            <constraint firstAttribute="trailing" secondItem="VG5-Sh-BeA" secondAttribute="trailing" constant="20" id="ZSh-aC-xQD"/>
+                                            <constraint firstItem="P4k-Ij-4uT" firstAttribute="top" secondItem="ghM-hM-uiP" secondAttribute="bottom" constant="8" id="a6T-de-UzZ"/>
+                                            <constraint firstItem="0Vx-a4-0yx" firstAttribute="top" secondItem="Itv-QE-iae" secondAttribute="bottom" constant="8" id="aQG-3o-IgE"/>
+                                            <constraint firstItem="VG5-Sh-BeA" firstAttribute="top" secondItem="nEy-9J-M2A" secondAttribute="bottom" constant="8" id="dFn-R4-hu7"/>
+                                            <constraint firstItem="nEy-9J-M2A" firstAttribute="top" secondItem="5Lz-aY-2Op" secondAttribute="bottom" constant="8" id="dQN-rN-q4o"/>
+                                            <constraint firstItem="nEy-9J-M2A" firstAttribute="leading" secondItem="Mdo-oK-7KI" secondAttribute="leading" constant="20" id="eIb-Nh-ckT"/>
+                                            <constraint firstItem="Itv-QE-iae" firstAttribute="top" secondItem="rfL-VI-4Fb" secondAttribute="bottom" constant="28" id="gjg-WT-fy7"/>
+                                            <constraint firstAttribute="trailing" secondItem="rfL-VI-4Fb" secondAttribute="trailing" constant="20" id="hLO-aO-gDk"/>
+                                            <constraint firstItem="P4k-Ij-4uT" firstAttribute="leading" secondItem="Mdo-oK-7KI" secondAttribute="leading" constant="20" id="jJZ-iY-Pgi"/>
+                                            <constraint firstItem="VG5-Sh-BeA" firstAttribute="leading" secondItem="Mdo-oK-7KI" secondAttribute="leading" constant="20" id="nRk-EW-UNX"/>
+                                            <constraint firstItem="5Lz-aY-2Op" firstAttribute="top" secondItem="Qkn-uP-Nd0" secondAttribute="bottom" constant="4" id="oYW-EH-Egy"/>
+                                            <constraint firstAttribute="trailing" secondItem="ghM-hM-uiP" secondAttribute="trailing" constant="20" id="qNy-RQ-rWU"/>
+                                            <constraint firstAttribute="trailing" secondItem="0Vx-a4-0yx" secondAttribute="trailing" constant="20" id="rJt-O8-kqg"/>
+                                            <constraint firstItem="ghM-hM-uiP" firstAttribute="top" secondItem="0Vx-a4-0yx" secondAttribute="bottom" constant="8" id="w7h-5z-YFV"/>
                                         </constraints>
-                                        <state key="normal" title="Create a group">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="createGroup:" destination="oOj-l4-Cqf" eventType="touchUpInside" id="Wnt-pz-2Vl"/>
-                                        </connections>
-                                    </button>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="or" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hhP-mA-uRA">
-                                        <rect key="frame" x="152" y="50" width="16" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fYl-bd-FgX">
-                                        <rect key="frame" x="20" y="71" width="280" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="CLI-B8-jqw"/>
-                                        </constraints>
-                                        <state key="normal" title="Select an owned group">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="selectOwnedGroup:" destination="oOj-l4-Cqf" eventType="touchUpInside" id="S5Y-2M-CDU"/>
-                                        </connections>
-                                    </button>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4eU-9D-e1R">
-                                        <rect key="frame" x="20" y="130" width="280" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="8HM-ym-aUI"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                        <connections>
-                                            <outlet property="delegate" destination="oOj-l4-Cqf" id="XHE-fH-9Og"/>
-                                        </connections>
-                                    </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QHe-E3-Sa0">
-                                        <rect key="frame" x="20" y="168" width="280" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="o9D-zZ-u3t"/>
-                                        </constraints>
-                                        <state key="normal" title="Add to group">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="addToGroup:" destination="oOj-l4-Cqf" eventType="touchUpInside" id="HHf-8D-Cmh"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U5e-nE-uUR">
-                                        <rect key="frame" x="20" y="206" width="280" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="715-Ja-F7L"/>
-                                        </constraints>
-                                        <state key="normal" title="List group members">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="listGroupMembers:" destination="oOj-l4-Cqf" eventType="touchUpInside" id="LPc-me-X8k"/>
-                                        </connections>
-                                    </button>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No selected group yet" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5KE-8X-Vae">
-                                        <rect key="frame" x="20" y="101" width="280" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="cAg-tF-7o2"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bL6-UC-hwr">
-                                        <rect key="frame" x="20" y="267" width="280" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="Agh-60-hRk"/>
-                                        </constraints>
-                                        <state key="normal" title="Select a group with me">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="selectGroupWithMe:" destination="oOj-l4-Cqf" eventType="touchUpInside" id="1xe-Wi-VP0"/>
-                                        </connections>
-                                    </button>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No selected group yet" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iXp-Gp-jUZ">
-                                        <rect key="frame" x="20" y="305" width="280" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="av1-0j-Zbd"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dwP-2R-UrX">
-                                        <rect key="frame" x="20" y="334" width="280" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="IAi-mP-07p"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                        <connections>
-                                            <outlet property="delegate" destination="oOj-l4-Cqf" id="3vA-ne-qpT"/>
-                                        </connections>
-                                    </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Moq-kR-cqQ">
-                                        <rect key="frame" x="20" y="372" width="280" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="NTr-OR-vHz"/>
-                                        </constraints>
-                                        <state key="normal" title="Save note to group bucket">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="saveNoteToGroupBucket:" destination="oOj-l4-Cqf" eventType="touchUpInside" id="Wb6-XB-qZ4"/>
-                                        </connections>
-                                    </button>
+                                    </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="QHe-E3-Sa0" firstAttribute="top" secondItem="4eU-9D-e1R" secondAttribute="bottom" constant="8" id="0g2-n4-wTO"/>
-                                    <constraint firstItem="U5e-nE-uUR" firstAttribute="top" secondItem="QHe-E3-Sa0" secondAttribute="bottom" constant="8" id="2ei-mQ-VVE"/>
-                                    <constraint firstItem="bL6-UC-hwr" firstAttribute="leading" secondItem="6RM-Q6-KqK" secondAttribute="leading" constant="20" id="6Vr-FC-ruU"/>
-                                    <constraint firstItem="Moq-kR-cqQ" firstAttribute="leading" secondItem="6RM-Q6-KqK" secondAttribute="leading" constant="20" id="7B0-ay-sPo"/>
-                                    <constraint firstAttribute="trailing" secondItem="QHe-E3-Sa0" secondAttribute="trailing" constant="20" id="B4B-2n-Vpm"/>
-                                    <constraint firstAttribute="trailing" secondItem="5KE-8X-Vae" secondAttribute="trailing" constant="20" id="BeE-BB-5hV"/>
-                                    <constraint firstAttribute="trailing" secondItem="fYl-bd-FgX" secondAttribute="trailing" constant="20" id="Glu-HW-eUe"/>
-                                    <constraint firstItem="iXp-Gp-jUZ" firstAttribute="leading" secondItem="6RM-Q6-KqK" secondAttribute="leading" constant="20" id="Hdf-TW-yx9"/>
-                                    <constraint firstItem="5KE-8X-Vae" firstAttribute="leading" secondItem="6RM-Q6-KqK" secondAttribute="leading" constant="20" id="Hle-Mw-NOu"/>
-                                    <constraint firstItem="hhP-mA-uRA" firstAttribute="leading" secondItem="6RM-Q6-KqK" secondAttribute="leading" constant="152" id="LIC-hN-cvQ"/>
-                                    <constraint firstAttribute="trailing" secondItem="4eU-9D-e1R" secondAttribute="trailing" constant="20" id="MrU-xK-UBU"/>
-                                    <constraint firstAttribute="trailing" secondItem="hhP-mA-uRA" secondAttribute="trailing" constant="152" id="Q2n-Z3-hlu"/>
-                                    <constraint firstItem="Moq-kR-cqQ" firstAttribute="top" secondItem="dwP-2R-UrX" secondAttribute="bottom" constant="8" id="T7g-lt-K5y"/>
-                                    <constraint firstItem="bL6-UC-hwr" firstAttribute="top" secondItem="U5e-nE-uUR" secondAttribute="bottom" constant="31" id="Urw-1u-y5i"/>
-                                    <constraint firstItem="hhP-mA-uRA" firstAttribute="top" secondItem="RLR-dh-HZd" secondAttribute="bottom" id="VHC-nU-2XN"/>
-                                    <constraint firstItem="RLR-dh-HZd" firstAttribute="top" secondItem="6RM-Q6-KqK" secondAttribute="top" constant="20" id="YhF-cO-XD0"/>
-                                    <constraint firstItem="dwP-2R-UrX" firstAttribute="top" secondItem="iXp-Gp-jUZ" secondAttribute="bottom" constant="8" id="aE4-e3-6tV"/>
-                                    <constraint firstAttribute="trailing" secondItem="RLR-dh-HZd" secondAttribute="trailing" constant="20" id="aZf-E7-Tlv"/>
-                                    <constraint firstItem="4eU-9D-e1R" firstAttribute="leading" secondItem="6RM-Q6-KqK" secondAttribute="leading" constant="20" id="erf-av-atd"/>
-                                    <constraint firstItem="4eU-9D-e1R" firstAttribute="top" secondItem="5KE-8X-Vae" secondAttribute="bottom" constant="8" id="i4o-Zk-dbe"/>
-                                    <constraint firstAttribute="trailing" secondItem="dwP-2R-UrX" secondAttribute="trailing" constant="20" id="iq3-WM-tP6"/>
-                                    <constraint firstItem="QHe-E3-Sa0" firstAttribute="leading" secondItem="6RM-Q6-KqK" secondAttribute="leading" constant="20" id="jR6-cc-SDK"/>
-                                    <constraint firstItem="dwP-2R-UrX" firstAttribute="leading" secondItem="6RM-Q6-KqK" secondAttribute="leading" constant="20" id="keo-sb-pgp"/>
-                                    <constraint firstItem="5KE-8X-Vae" firstAttribute="top" secondItem="fYl-bd-FgX" secondAttribute="bottom" id="mR5-Dn-RIV"/>
-                                    <constraint firstAttribute="trailing" secondItem="bL6-UC-hwr" secondAttribute="trailing" constant="20" id="mhn-xW-iRM"/>
-                                    <constraint firstItem="fYl-bd-FgX" firstAttribute="leading" secondItem="6RM-Q6-KqK" secondAttribute="leading" constant="20" id="mni-YI-jNo"/>
-                                    <constraint firstItem="U5e-nE-uUR" firstAttribute="leading" secondItem="6RM-Q6-KqK" secondAttribute="leading" constant="20" id="nXS-0G-6Ud"/>
-                                    <constraint firstAttribute="bottom" secondItem="Moq-kR-cqQ" secondAttribute="bottom" constant="8" id="oxB-iN-iMA"/>
-                                    <constraint firstItem="RLR-dh-HZd" firstAttribute="leading" secondItem="6RM-Q6-KqK" secondAttribute="leading" constant="20" id="p73-8k-a1F"/>
-                                    <constraint firstAttribute="trailing" secondItem="U5e-nE-uUR" secondAttribute="trailing" constant="20" id="qVL-BQ-0wO"/>
-                                    <constraint firstAttribute="trailing" secondItem="Moq-kR-cqQ" secondAttribute="trailing" constant="20" id="uL4-Lc-o1L"/>
-                                    <constraint firstItem="fYl-bd-FgX" firstAttribute="top" secondItem="hhP-mA-uRA" secondAttribute="bottom" id="v1e-Bv-RUK"/>
-                                    <constraint firstItem="iXp-Gp-jUZ" firstAttribute="top" secondItem="bL6-UC-hwr" secondAttribute="bottom" constant="8" id="vdm-9e-qoT"/>
-                                    <constraint firstAttribute="trailing" secondItem="iXp-Gp-jUZ" secondAttribute="trailing" constant="20" id="xze-hd-vWm"/>
+                                    <constraint firstAttribute="trailing" secondItem="Mdo-oK-7KI" secondAttribute="trailing" id="CHU-yv-aV0"/>
+                                    <constraint firstAttribute="bottom" secondItem="Mdo-oK-7KI" secondAttribute="bottom" id="OBd-PS-Y9s"/>
+                                    <constraint firstItem="Mdo-oK-7KI" firstAttribute="top" secondItem="6RM-Q6-KqK" secondAttribute="top" id="YjU-yo-OFj"/>
+                                    <constraint firstItem="Mdo-oK-7KI" firstAttribute="leading" secondItem="6RM-Q6-KqK" secondAttribute="leading" id="m7r-4y-A5n"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
@@ -1346,12 +1362,6 @@ Phone is not verified</string>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Group Management" id="yDL-sE-Evi"/>
-                    <connections>
-                        <outlet property="groupLabel1" destination="5KE-8X-Vae" id="1yP-MD-utu"/>
-                        <outlet property="groupLabel2" destination="iXp-Gp-jUZ" id="d7b-ug-EQC"/>
-                        <outlet property="groupNoteField" destination="dwP-2R-UrX" id="Ua3-4b-HkH"/>
-                        <outlet property="usernameField" destination="4eU-9D-e1R" id="sbt-80-47F"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ie8-67-EOx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1361,7 +1371,7 @@ Phone is not verified</string>
         <scene sceneID="Gva-72-U2r">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="XAg-5s-e4G" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Settings" id="lv5-zv-0Ha"/>
+                    <tabBarItem key="tabBarItem" title="Settings" image="tab_settings.png" id="lv5-zv-0Ha"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="cBC-lU-YFe">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -1377,6 +1387,10 @@ Phone is not verified</string>
             <point key="canvasLocation" x="636" y="919"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="tab_api.png" width="30" height="30"/>
+        <image name="tab_settings.png" width="30" height="30"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
