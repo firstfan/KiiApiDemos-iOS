@@ -27,6 +27,13 @@ static KAGlobal *instance = nil;
     self = [super init];
 
     if (self) {
+        NSFileManager   *fileManager = [NSFileManager defaultManager];
+        NSArray         *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+        self.cachePath = [paths[0] stringByAppendingPathComponent:@"cache"];
+        if (![fileManager fileExistsAtPath:self.cachePath]) {
+            [fileManager createDirectoryAtPath:self.cachePath withIntermediateDirectories:YES attributes:nil error:NULL];
+        }
+
         self.us_app = [[KAAppConfig alloc] init];
         self.us_app.site = kiiSiteUS;
         self.us_app.analyticsSite = kiiAnalyticsSiteUS;

@@ -31,6 +31,7 @@
 @property (retain, nonatomic) KAAppConfig   *custom_app;
 @property (retain, nonatomic) NSString      *token;
 @property (nonatomic) int                   currentAppSelection;
+@property (retain, nonatomic) NSString      *cachePath;
 
 + (KAGlobal *)getInstance;
 - (void)switchApp;

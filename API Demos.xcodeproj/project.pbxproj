@@ -20,6 +20,8 @@
 		2054D0EB1963E29C00F3CF67 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2054D0CA1963E29C00F3CF67 /* UIKit.framework */; };
 		2054D0F31963E29C00F3CF67 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2054D0F11963E29C00F3CF67 /* InfoPlist.strings */; };
 		2054D0F51963E29C00F3CF67 /* API_DemosTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2054D0F41963E29C00F3CF67 /* API_DemosTests.m */; };
+		205AAFF11984775600BC06FB /* KANotepadTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 205AAFF01984775600BC06FB /* KANotepadTableViewController.m */; };
+		205AAFF5198480CF00BC06FB /* KANoteEditorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 205AAFF4198480CF00BC06FB /* KANoteEditorViewController.m */; };
 		207069581974E20A00EE57F2 /* KAGroupManagementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 207069571974E20A00EE57F2 /* KAGroupManagementViewController.m */; };
 		20968B0A1963E46B0021BBE2 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20968B091963E46B0021BBE2 /* MobileCoreServices.framework */; };
 		20968B0C1963E4730021BBE2 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20968B0B1963E4730021BBE2 /* Accounts.framework */; };
@@ -73,6 +75,10 @@
 		2054D0F01963E29C00F3CF67 /* API DemosTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "API DemosTests-Info.plist"; sourceTree = "<group>"; };
 		2054D0F21963E29C00F3CF67 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2054D0F41963E29C00F3CF67 /* API_DemosTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = API_DemosTests.m; sourceTree = "<group>"; };
+		205AAFEF1984775600BC06FB /* KANotepadTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KANotepadTableViewController.h; sourceTree = "<group>"; };
+		205AAFF01984775600BC06FB /* KANotepadTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KANotepadTableViewController.m; sourceTree = "<group>"; };
+		205AAFF3198480CF00BC06FB /* KANoteEditorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KANoteEditorViewController.h; sourceTree = "<group>"; };
+		205AAFF4198480CF00BC06FB /* KANoteEditorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KANoteEditorViewController.m; sourceTree = "<group>"; };
 		207069561974E20A00EE57F2 /* KAGroupManagementViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KAGroupManagementViewController.h; sourceTree = "<group>"; };
 		207069571974E20A00EE57F2 /* KAGroupManagementViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KAGroupManagementViewController.m; sourceTree = "<group>"; };
 		20968B091963E46B0021BBE2 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
@@ -187,11 +193,10 @@
 				20E27D011976876E00F0B1A4 /* tab_settings@2x.png */,
 				20E27D021976876E00F0B1A4 /* tab_api@2x.png */,
 				2054D0D81963E29C00F3CF67 /* Main.storyboard */,
-				20B45E9619693EB500CA2F03 /* KASettingsViewController.h */,
-				20B45E9719693EB500CA2F03 /* KASettingsViewController.m */,
 				2099FD4E196AFCA0005062F0 /* Global */,
 				2099FD52196AFCCB005062F0 /* User management */,
 				207069591974E21000EE57F2 /* Group management */,
+				205AAFF21984775C00BC06FB /* Object storage (Notepad) */,
 				2054D0E11963E29C00F3CF67 /* Images.xcassets */,
 				2054D0CD1963E29C00F3CF67 /* Supporting Files */,
 			);
@@ -227,6 +232,17 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		205AAFF21984775C00BC06FB /* Object storage (Notepad) */ = {
+			isa = PBXGroup;
+			children = (
+				205AAFEF1984775600BC06FB /* KANotepadTableViewController.h */,
+				205AAFF01984775600BC06FB /* KANotepadTableViewController.m */,
+				205AAFF3198480CF00BC06FB /* KANoteEditorViewController.h */,
+				205AAFF4198480CF00BC06FB /* KANoteEditorViewController.m */,
+			);
+			name = "Object storage (Notepad)";
+			sourceTree = "<group>";
+		};
 		207069591974E21000EE57F2 /* Group management */ = {
 			isa = PBXGroup;
 			children = (
@@ -239,6 +255,8 @@
 		2099FD4E196AFCA0005062F0 /* Global */ = {
 			isa = PBXGroup;
 			children = (
+				20B45E9619693EB500CA2F03 /* KASettingsViewController.h */,
+				20B45E9719693EB500CA2F03 /* KASettingsViewController.m */,
 				2099FD53196AFFF9005062F0 /* iToast.h */,
 				2099FD54196AFFF9005062F0 /* iToast.m */,
 				2099FD55196AFFF9005062F0 /* MBProgressHUD.h */,
@@ -381,11 +399,13 @@
 				20B45E9819693EB500CA2F03 /* KASettingsViewController.m in Sources */,
 				2099FD58196AFFF9005062F0 /* MBProgressHUD.m in Sources */,
 				20B45EA11969435100CA2F03 /* KAGlobal.m in Sources */,
+				205AAFF11984775600BC06FB /* KANotepadTableViewController.m in Sources */,
 				2054D0D31963E29C00F3CF67 /* main.m in Sources */,
 				2099FD51196AFCC5005062F0 /* KASimpleSignUpInViewController.m in Sources */,
 				209AD7B8196C40F400DE5235 /* KAUserAttributesViewController.m in Sources */,
 				2099FD5B196B116A005062F0 /* KASignUpViewController.m in Sources */,
 				2099FD57196AFFF9005062F0 /* iToast.m in Sources */,
+				205AAFF5198480CF00BC06FB /* KANoteEditorViewController.m in Sources */,
 				20D6185F196F4ADD00AF8A4A /* KASNSIntegrateViewController.m in Sources */,
 				209AD7BB196C480E00DE5235 /* KALogoutDeleteUserViewController.m in Sources */,
 				20E91E06196B5F8A0062B9EF /* KASignInViewController.m in Sources */,

@@ -43,9 +43,8 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    NSArray *versionCompatibility = [[UIDevice currentDevice].systemVersion componentsSeparatedByString:@"."];
-    if ([[versionCompatibility objectAtIndex:0] intValue]>=7) {
-        self.automaticallyAdjustsScrollViewInsets = NO;
+    if ([self respondsToSelector:@selector(setAutomaticallyAdjustsScrollViewInsets:)]) {
+        [self setAutomaticallyAdjustsScrollViewInsets:NO];
     }
 }
 
