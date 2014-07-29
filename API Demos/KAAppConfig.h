@@ -17,4 +17,7 @@
 @property (retain, nonatomic) NSString  *appId;
 @property (retain, nonatomic) NSString  *appKey;
 @property (retain, nonatomic) NSString  *ABTestingID;
+@property (retain, nonatomic) NSString  *analytics_avg_score_id;
+@property (retain, nonatomic) NSString  *analytics_event_id;
+
 @end

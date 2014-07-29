@@ -40,6 +40,8 @@ static KAGlobal *instance = nil;
         self.us_app.appId = @"9ab79441";
         self.us_app.appKey = @"21ed90644560656412620e9107acce5f";
         self.us_app.ABTestingID = @"2fecb240-e4bd-11e3-a798-22000ad90d5b";
+        self.us_app.analytics_event_id = @"428";
+        self.us_app.analytics_avg_score_id = @"401";
 
         self.cn_app = [[KAAppConfig alloc] init];
         self.cn_app.site = kiiSiteCN;
@@ -47,6 +49,8 @@ static KAGlobal *instance = nil;
         self.cn_app.appId = @"d825f784";
         self.cn_app.appKey = @"bbabd43176c6681e7dca576eedbc776d";
         self.cn_app.ABTestingID = @"5cb0b720-e0be-11e3-ac8a-90b8d0235395";
+        self.cn_app.analytics_event_id = @"367";
+        self.cn_app.analytics_avg_score_id = @"366";
         
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         self.custom_app = [[KAAppConfig alloc] init];
