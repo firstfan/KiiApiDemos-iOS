@@ -162,6 +162,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="f3x-yQ-bVt" kind="push" id="Vb5-YE-xjP"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="kbi-9k-lbw" style="IBUITableViewCellStyleDefault" id="Edg-IC-DnV">
                                         <rect key="frame" x="0.0" y="372" width="320" height="44"/>
@@ -1369,6 +1372,61 @@ Phone is not verified</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ie8-67-EOx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1608" y="732"/>
+        </scene>
+        <!--Testing View Controller - A/B Testing-->
+        <scene sceneID="nan-u2-4Kp">
+            <objects>
+                <viewController hidesBottomBarWhenPushed="YES" id="f3x-yQ-bVt" customClass="KAABTestingViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="vwf-pw-dQa"/>
+                        <viewControllerLayoutGuide type="bottom" id="c3D-lL-Cc4"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="M5q-Go-Q4K">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please refer to http://documentation.kii.com/en/guides/ab-testing/ for how to use A/B Testing" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="OGM-E8-71V">
+                                <rect key="frame" x="20" y="82" width="280" height="54"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" id="CMQ-CQ-Tda"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oGO-gF-92O">
+                                <rect key="frame" x="80" y="252" width="160" height="64"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="160" id="hWF-GN-LkR"/>
+                                    <constraint firstAttribute="height" constant="64" id="k32-KH-R21"/>
+                                </constraints>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="clickOnButton:" destination="f3x-yQ-bVt" eventType="touchUpInside" id="JJE-UF-AwD"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="OGM-E8-71V" firstAttribute="top" secondItem="vwf-pw-dQa" secondAttribute="bottom" constant="18" id="7nT-VX-9zg"/>
+                            <constraint firstAttribute="centerX" secondItem="oGO-gF-92O" secondAttribute="centerX" id="85Q-CR-hQg"/>
+                            <constraint firstAttribute="centerY" secondItem="oGO-gF-92O" secondAttribute="centerY" id="90D-Tq-kBi"/>
+                            <constraint firstAttribute="trailing" secondItem="OGM-E8-71V" secondAttribute="trailing" constant="20" id="Vye-GE-Xku"/>
+                            <constraint firstItem="OGM-E8-71V" firstAttribute="leading" secondItem="M5q-Go-Q4K" secondAttribute="leading" constant="20" id="zns-Ts-GIW"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="A/B Testing" id="xPU-ex-j2C"/>
+                    <connections>
+                        <outlet property="button" destination="oGO-gF-92O" id="gDR-OH-tCF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nZr-Po-khO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1608" y="1453"/>
         </scene>
         <!--Notepad Table View Controller - Notepad-->
         <scene sceneID="2l9-U0-mEN">

@@ -39,13 +39,15 @@ static KAGlobal *instance = nil;
         self.us_app.analyticsSite = kiiAnalyticsSiteUS;
         self.us_app.appId = @"9ab79441";
         self.us_app.appKey = @"21ed90644560656412620e9107acce5f";
+        self.us_app.ABTestingID = @"2fecb240-e4bd-11e3-a798-22000ad90d5b";
 
         self.cn_app = [[KAAppConfig alloc] init];
         self.cn_app.site = kiiSiteCN;
         self.cn_app.analyticsSite = kiiAnalyticsSiteCN;
         self.cn_app.appId = @"d825f784";
         self.cn_app.appKey = @"bbabd43176c6681e7dca576eedbc776d";
-
+        self.cn_app.ABTestingID = @"5cb0b720-e0be-11e3-ac8a-90b8d0235395";
+        
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         self.custom_app = [[KAAppConfig alloc] init];
         int server = [defaults integerForKey:CUSTOM_SERVER];

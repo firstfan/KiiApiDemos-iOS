@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		203B16A619877A1700AD36A6 /* KAABTestingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 203B16A519877A1700AD36A6 /* KAABTestingViewController.m */; };
 		2054D0C71963E29C00F3CF67 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2054D0C61963E29C00F3CF67 /* Foundation.framework */; };
 		2054D0C91963E29C00F3CF67 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2054D0C81963E29C00F3CF67 /* CoreGraphics.framework */; };
 		2054D0CB1963E29C00F3CF67 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2054D0CA1963E29C00F3CF67 /* UIKit.framework */; };
@@ -58,6 +59,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		203B16A419877A1700AD36A6 /* KAABTestingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KAABTestingViewController.h; sourceTree = "<group>"; };
+		203B16A519877A1700AD36A6 /* KAABTestingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KAABTestingViewController.m; sourceTree = "<group>"; };
 		2054D0C31963E29C00F3CF67 /* API Demos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "API Demos.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2054D0C61963E29C00F3CF67 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		2054D0C81963E29C00F3CF67 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -149,6 +152,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		203B16A719877A1B00AD36A6 /* A/B Testing */ = {
+			isa = PBXGroup;
+			children = (
+				203B16A419877A1700AD36A6 /* KAABTestingViewController.h */,
+				203B16A519877A1700AD36A6 /* KAABTestingViewController.m */,
+			);
+			name = "A/B Testing";
+			sourceTree = "<group>";
+		};
 		2054D0BA1963E29C00F3CF67 = {
 			isa = PBXGroup;
 			children = (
@@ -197,6 +209,7 @@
 				2099FD52196AFCCB005062F0 /* User management */,
 				207069591974E21000EE57F2 /* Group management */,
 				205AAFF21984775C00BC06FB /* Object storage (Notepad) */,
+				203B16A719877A1B00AD36A6 /* A/B Testing */,
 				2054D0E11963E29C00F3CF67 /* Images.xcassets */,
 				2054D0CD1963E29C00F3CF67 /* Supporting Files */,
 			);
@@ -406,6 +419,7 @@
 				2099FD5B196B116A005062F0 /* KASignUpViewController.m in Sources */,
 				2099FD57196AFFF9005062F0 /* iToast.m in Sources */,
 				205AAFF5198480CF00BC06FB /* KANoteEditorViewController.m in Sources */,
+				203B16A619877A1700AD36A6 /* KAABTestingViewController.m in Sources */,
 				20D6185F196F4ADD00AF8A4A /* KASNSIntegrateViewController.m in Sources */,
 				209AD7BB196C480E00DE5235 /* KALogoutDeleteUserViewController.m in Sources */,
 				20E91E06196B5F8A0062B9EF /* KASignInViewController.m in Sources */,

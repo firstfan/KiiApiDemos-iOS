@@ -44,13 +44,12 @@
             NSError *refreshError = nil;
             [self.data refreshSynchronous:&refreshError];
 
-            NSString *downloadFilePathStr = [[KAGlobal getInstance].cachePath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.jpg",self.data.uuid]];
-            NSURL *downloadFilePath = [NSURL fileURLWithPath:downloadFilePathStr];
+            NSURL *path = [self getCacheFileURL];
             NSError *downloadError = nil;
-            [self.data downloadBodySynchronousWithURL:downloadFilePath
+            [self.data downloadBodySynchronousWithURL:path
                                           andError:&downloadError];
             if (downloadError == nil) {
-                UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:downloadFilePath]];
+                UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:path]];
                 if (image != nil) {
                     dispatch_async(dispatch_get_main_queue(), ^{
                         [self.imageView setImage:image];
@@ -124,6 +123,13 @@
     }];
 }
 
+- (NSURL*)getCacheFileURL
+{
+    NSString *pathStr = [[KAGlobal getInstance].cachePath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.jpg",self.data.uuid]];
+    NSURL *path = [NSURL fileURLWithPath:pathStr];
+    return path;
+}
+
 - (IBAction)clickOnSave:(id)sender {
     [self.data setObject:[self.titleField text] forKey:@"title"];
     [self.data setObject:[self.contentView text] forKey:@"content"];
@@ -132,8 +138,7 @@
         NSError *error;
         [self.data saveSynchronous:&error];
         if (error == nil && imgChanged) {
-            NSString *pathStr = [[KAGlobal getInstance].cachePath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.jpg",self.data.uuid]];
-            NSURL *path = [NSURL fileURLWithPath:pathStr];
+            NSURL *path = [self getCacheFileURL];
             UIImage *image = [self.imageView image];
             NSData *imgData = UIImageJPEGRepresentation(image, 100);
             [imgData writeToURL:path atomically:YES];

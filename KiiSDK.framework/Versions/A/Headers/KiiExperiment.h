@@ -83,6 +83,22 @@ If you use <KiiVariationSamplerByKiiUser> with current login user, it will be sa
  */
 - (KiiVariation*) appliedVariationWithSampler:(id<KiiVariationSampler>) sampler andError:(NSError**) error;
 
+/** Get the variation applied to this trial. <br>
+    Sampler should return the variation according to the rate defined
+    in this experiment. If sampler fails to return applied variation,
+    then fallback is returned. If you use
+    <KiiVariationSamplerByKiiUser> with current login user, it will be
+    same as <appliedVariationWithError:>.
+
+    @param sampler an instance of object that conform
+    KiiVariationSampler protocol.
+    @param fallback fallback The variation to return when failed to
+    get the applied variation.
+    @return applied variation for this trial or fallback.
+ */
+- (KiiVariation*) appliedVariationWithSampler:(id<KiiVariationSampler>) sampler
+                                     fallback:(KiiVariation*) fallback;
+
 /** Get the variation which has the specified name.
  
  @param name variation name.

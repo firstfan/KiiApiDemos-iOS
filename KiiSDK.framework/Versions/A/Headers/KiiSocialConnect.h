@@ -32,21 +32,21 @@ typedef NS_ENUM(NSUInteger, KiiConnectorProvider) {
     /** Use Twitter to authenticate */
     kiiConnectorTwitter,
     /** Use LinkedIn to authenticate */
-    kiiConnectorLinkedin,
+    kiiConnectorLinkedIn,
     /** Use Yahoo to authenticate */
     kiiConnectorYahoo,
     /** Use Google to authenticate */
     kiiConnectorGoogle,
     /** Use Dropbox to authenticate */
-    kiiConnectorDropBox,
+    kiiConnectorDropbox,
     /** Use Box to authenticate */
     kiiConnectorBox,
-    /** Use RenRen to authenticate */
-    kiiConnectorRenRen,
+    /** Use Renren to authenticate */
+    kiiConnectorRenren,
     /** Use Sina Weibo to authenticate */
     kiiConnectorSina,
-    /** Use QQ Weibo to authenticate */
-    kiiConnectorQQ
+    /** Use Live to authenticate */
+    kiiConnectorLive
 };
 
 /**

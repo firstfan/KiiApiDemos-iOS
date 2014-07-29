@@ -32,4 +32,6 @@
 + (void) _callMethod:(SEL)method onDelegate:(id)delegate waitUntilDone : (BOOL) shouldWait withFirstObjects:(id)firstObj andArguments:(va_list)args;
 
 + (NSString*) mimeTypeForFileAtPath:(NSString*)path;
+
++ (NSDictionary *)readPropertyFile:(NSString *)plistFileName;
 @end

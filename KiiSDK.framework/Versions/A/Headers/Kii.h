@@ -149,14 +149,16 @@ typedef NS_ENUM(NSUInteger, KiiSite) {
 /** Enable Kii APNS with APNS environment setting.
  @param isDevelopmentMode YES if APNS development environment mode or NO for production mode.
  @param types of ui remote notification type.
+ @deprecated This method is deprecated. Use default iOS SDK <[UIApplication registerForRemoteNotificationTypes]> then call installation with <[KiiPushInstallation installSynchronousWithDeviceToken:andDevelopmentMode:andError:]>
  */
 +(void)enableAPNSWithDevelopmentMode:(BOOL) isDevelopmentMode
-               andNotificationTypes:(UIRemoteNotificationType) types;
+               andNotificationTypes:(UIRemoteNotificationType) types __attribute__((deprecated("Use default iOS SDK [UIApplication registerForRemoteNotificationTypes] then call installation with [KiiPushInstallation installSynchronousWithDeviceToken:andDevelopmentMode:andError:]")));
 
 /** Set APNS device token it is called on AppDelegate's didRegisterForRemoteNotificationsWithDeviceToken
-@param deviceToken device token that is given by APNS server.
+ @param deviceToken device token that is given by APNS server.
+ @deprecated This method is deprecated. Use <[KiiPushInstallation installSynchronousWithDeviceToken:andDevelopmentMode:andError:]> instead.
  */
-+(void) setAPNSDeviceToken:(NSData*) deviceToken;
++(void) setAPNSDeviceToken:(NSData*) deviceToken __attribute__((deprecated("Use [KiiPushInstallation installSynchronousWithDeviceToken:andDevelopmentMode:andError:]")));
 
 /** Create KiiServerCodeEntry instance with the given entry name.
  @param entryName a specific entry name for this server code. Can not be nil and valid entryName pattern is "[a-zA-Z][_a-zA-Z0-9]*$"
@@ -174,6 +176,10 @@ typedef NS_ENUM(NSUInteger, KiiSite) {
  */
 +(KiiServerCodeEntry*)serverCodeEntry:(NSString*) entryName withVersion:(NSString*) version;
 
-@property(assign) BOOL isDevelopmentMode;
+/**
+* URL of KiiApps Server.
+* @return A NSString object representing the URL of KiiApps Server.
+*/
++ (NSString *)kiiAppsBaseURL;
 
 @end
