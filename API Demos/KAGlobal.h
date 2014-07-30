@@ -15,6 +15,8 @@
 #define CUSTOM_APPKEY   @"custom_appkey"
 #define TOKEN           @"token"
 
+#define FILE_BUCKET     @"files"
+
 #define US_APP          0
 #define CN_APP          1
 #define CUSTOM_APP      9
@@ -32,6 +34,8 @@
 @property (retain, nonatomic) NSString      *token;
 @property (nonatomic) int                   currentAppSelection;
 @property (retain, nonatomic) NSString      *cachePath;
+
+
 
 + (KAGlobal *)getInstance;
 - (void)switchApp;
