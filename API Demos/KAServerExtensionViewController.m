@@ -51,8 +51,10 @@
     [entry execute:argument withBlock:^(KiiServerCodeEntry *entry, KiiServerCodeEntryArgument *argument, KiiServerCodeExecResult *result, NSError *error) {
         [MBProgressHUD hideHUDForView:self.view animated:NO];
         if (error == nil) {
-            int resultCode = [[result.returnedValue objectForKey:@"result"] intValue];
-            NSString *msg = [result.returnedValue objectForKey:@"msg"];
+            NSDictionary *dict = [result.returnedValue objectForKey:@"returnedValue"];
+            int resultCode = [[dict objectForKey:@"result"] intValue];
+            NSString *msg = [dict objectForKey:@"msg"];
+            NSLog(@"result:%d msg:%@",resultCode, msg);
             if (resultCode == 0) {
                 [[iToast makeText:@"Run server extension successfully"] show];
             } else {
