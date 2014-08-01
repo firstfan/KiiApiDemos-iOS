@@ -187,7 +187,7 @@
     
     [object setObject:name
                forKey:@"title"];
-    [object setObject:[NSNumber numberWithInt:[imgData length]]
+    [object setObject:[NSNumber numberWithUnsignedInteger:[imgData length]]
                forKey:@"fileSize"];
     KiiUploader *uploader = [object uploader:pathStr];
     [uploader transferWithProgressBlock:progress
