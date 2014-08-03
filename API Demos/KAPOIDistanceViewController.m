@@ -8,6 +8,8 @@
 
 #import "KAPOIDistanceViewController.h"
 #import "KAGlobal.h"
+#import "MBProgressHUD.h"
+#import "KAViewUtils.h"
 
 @interface KAPOIDistanceViewController () {
     CLLocationManager *locationManager;
@@ -73,6 +75,8 @@
 }
 
 - (IBAction)query:(id)sender {
+    [KAViewUtils resignFirstResponder:self.view];
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     double lat = [[self.latField text] doubleValue];
     double lng = [[self.longField text] doubleValue];
     int distance = [[self.distanceField text] intValue];
@@ -83,6 +87,7 @@
                                         center:poi radius:distance putDistanceInto:nil];
     KiiQuery *query = [KiiQuery queryWithClause:clause];
     [bucket executeQuery:query withBlock:^(KiiQuery *query, KiiBucket *bucket, NSArray *results, KiiQuery *nextQuery, NSError *error) {
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
         allData = results;
         [self.tableView reloadData];
     }];

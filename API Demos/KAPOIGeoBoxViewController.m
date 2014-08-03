@@ -8,6 +8,8 @@
 
 #import "KAPOIGeoBoxViewController.h"
 #import "KAGlobal.h"
+#import "MBProgressHUD.h"
+#import "KAViewUtils.h"
 
 @interface KAPOIGeoBoxViewController () {
     CLLocationManager *locationManager;
@@ -74,6 +76,7 @@
 }
 
 - (IBAction)query:(id)sender {
+    [KAViewUtils resignFirstResponder:self.view];
     KiiBucket  *bucket = [[KiiUser currentUser] bucketWithName:GEOLOCATION_BUCKET];
     double lat = [[self.swLatField text] doubleValue];
     double lng = [[self.swLongField text] doubleValue];
@@ -88,7 +91,9 @@
                                 northEast:ne
                                 southWest:sw];
     KiiQuery *query = [KiiQuery queryWithClause:clause];
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [bucket executeQuery:query withBlock:^(KiiQuery *query, KiiBucket *bucket, NSArray *results, KiiQuery *nextQuery, NSError *error) {
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
         allData = results;
         [self.tableView reloadData];
     }];
