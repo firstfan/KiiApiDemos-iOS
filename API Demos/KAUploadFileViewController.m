@@ -180,7 +180,7 @@
     [self.imgPicker dismissViewControllerAnimated:YES completion:nil];
     UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
     NSData *imgData = UIImageJPEGRepresentation(image, 100);
-     NSString *name = [NSString stringWithFormat:@"%lld.jpg",(long long)([[NSDate date] timeIntervalSince1970]*1000)];
+    NSString *name = [NSString stringWithFormat:@"%lld.jpg",(long long)([[NSDate date] timeIntervalSince1970]*1000)];
     NSString *pathStr = [[KAGlobal getInstance].cachePath stringByAppendingPathComponent:name];
     [imgData writeToFile:pathStr atomically:YES];
     KiiObject *object = [bucket createObject];

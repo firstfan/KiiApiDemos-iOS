@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface KADownloadFileViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface KADownloadFileViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UIActionSheetDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @end
