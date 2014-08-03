@@ -16,6 +16,7 @@
 #define TOKEN           @"token"
 
 #define FILE_BUCKET     @"files"
+#define GEOLOCATION_BUCKET @"location"
 
 #define US_APP          0
 #define CN_APP          1

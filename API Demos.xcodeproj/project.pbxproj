@@ -49,6 +49,10 @@
 		20B45E9B1969404C00CA2F03 /* KAViewUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 20B45E9A1969404C00CA2F03 /* KAViewUtils.m */; };
 		20B45E9E196940E800CA2F03 /* KAAppConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 20B45E9D196940E800CA2F03 /* KAAppConfig.m */; };
 		20B45EA11969435100CA2F03 /* KAGlobal.m in Sources */ = {isa = PBXBuildFile; fileRef = 20B45EA01969435100CA2F03 /* KAGlobal.m */; };
+		20D415E8198E2D2400E170B8 /* KAAddPOIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20D415E7198E2D2400E170B8 /* KAAddPOIViewController.m */; };
+		20D415EB198E32FB00E170B8 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20D415EA198E32FB00E170B8 /* CoreLocation.framework */; };
+		20D415EE198E408400E170B8 /* KAPOIGeoBoxViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20D415ED198E408400E170B8 /* KAPOIGeoBoxViewController.m */; };
+		20D415F1198E409B00E170B8 /* KAPOIDistanceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20D415F0198E409B00E170B8 /* KAPOIDistanceViewController.m */; };
 		20D6185F196F4ADD00AF8A4A /* KASNSIntegrateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20D6185E196F4ADD00AF8A4A /* KASNSIntegrateViewController.m */; };
 		20E27D031976876E00F0B1A4 /* tab_settings@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 20E27D011976876E00F0B1A4 /* tab_settings@2x.png */; };
 		20E27D041976876E00F0B1A4 /* tab_api@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 20E27D021976876E00F0B1A4 /* tab_api@2x.png */; };
@@ -133,6 +137,13 @@
 		20B45E9D196940E800CA2F03 /* KAAppConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KAAppConfig.m; sourceTree = "<group>"; };
 		20B45E9F1969435100CA2F03 /* KAGlobal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KAGlobal.h; sourceTree = "<group>"; };
 		20B45EA01969435100CA2F03 /* KAGlobal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KAGlobal.m; sourceTree = "<group>"; };
+		20D415E6198E2D2400E170B8 /* KAAddPOIViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KAAddPOIViewController.h; sourceTree = "<group>"; };
+		20D415E7198E2D2400E170B8 /* KAAddPOIViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KAAddPOIViewController.m; sourceTree = "<group>"; };
+		20D415EA198E32FB00E170B8 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		20D415EC198E408400E170B8 /* KAPOIGeoBoxViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KAPOIGeoBoxViewController.h; sourceTree = "<group>"; };
+		20D415ED198E408400E170B8 /* KAPOIGeoBoxViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KAPOIGeoBoxViewController.m; sourceTree = "<group>"; };
+		20D415EF198E409B00E170B8 /* KAPOIDistanceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KAPOIDistanceViewController.h; sourceTree = "<group>"; };
+		20D415F0198E409B00E170B8 /* KAPOIDistanceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KAPOIDistanceViewController.m; sourceTree = "<group>"; };
 		20D6185D196F4ADD00AF8A4A /* KASNSIntegrateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KASNSIntegrateViewController.h; sourceTree = "<group>"; };
 		20D6185E196F4ADD00AF8A4A /* KASNSIntegrateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KASNSIntegrateViewController.m; sourceTree = "<group>"; };
 		20E27D011976876E00F0B1A4 /* tab_settings@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tab_settings@2x.png"; sourceTree = "<group>"; };
@@ -146,6 +157,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				20D415EB198E32FB00E170B8 /* CoreLocation.framework in Frameworks */,
 				20968B141963E4930021BBE2 /* libsqlite3.dylib in Frameworks */,
 				20968B121963E48B0021BBE2 /* ImageIO.framework in Frameworks */,
 				20968B101963E4830021BBE2 /* Security.framework in Frameworks */,
@@ -237,6 +249,7 @@
 		2054D0C51963E29C00F3CF67 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				20D415EA198E32FB00E170B8 /* CoreLocation.framework */,
 				20968B171963E4B70021BBE2 /* KiiAnalytics.framework */,
 				20968B151963E4A90021BBE2 /* KiiSDK.framework */,
 				20968B131963E4930021BBE2 /* libsqlite3.dylib */,
@@ -263,6 +276,7 @@
 				2099FD52196AFCCB005062F0 /* User management */,
 				207069591974E21000EE57F2 /* Group management */,
 				203B16B21987D75D00AD36A6 /* File storage */,
+				20D415E9198E2D3100E170B8 /* Geolocation */,
 				205AAFF21984775C00BC06FB /* Object storage (Notepad) */,
 				203B16AB1987854300AD36A6 /* Analytics */,
 				203B16A719877A1B00AD36A6 /* A/B Testing */,
@@ -362,6 +376,19 @@
 				20D6185E196F4ADD00AF8A4A /* KASNSIntegrateViewController.m */,
 			);
 			name = "User management";
+			sourceTree = "<group>";
+		};
+		20D415E9198E2D3100E170B8 /* Geolocation */ = {
+			isa = PBXGroup;
+			children = (
+				20D415E6198E2D2400E170B8 /* KAAddPOIViewController.h */,
+				20D415E7198E2D2400E170B8 /* KAAddPOIViewController.m */,
+				20D415EC198E408400E170B8 /* KAPOIGeoBoxViewController.h */,
+				20D415ED198E408400E170B8 /* KAPOIGeoBoxViewController.m */,
+				20D415EF198E409B00E170B8 /* KAPOIDistanceViewController.h */,
+				20D415F0198E409B00E170B8 /* KAPOIDistanceViewController.m */,
+			);
+			name = Geolocation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -467,6 +494,7 @@
 				203B16B51987E7FE00AD36A6 /* KAUploadFileViewController.m in Sources */,
 				203B16AA1987853F00AD36A6 /* KAFlexAnalyticsViewController.m in Sources */,
 				203B16B81987E91500AD36A6 /* KACheckLoginTableViewController.m in Sources */,
+				20D415E8198E2D2400E170B8 /* KAAddPOIViewController.m in Sources */,
 				20B45E9B1969404C00CA2F03 /* KAViewUtils.m in Sources */,
 				2054D0D71963E29C00F3CF67 /* KAAppDelegate.m in Sources */,
 				20B45E9E196940E800CA2F03 /* KAAppConfig.m in Sources */,
@@ -481,6 +509,7 @@
 				2054D0D31963E29C00F3CF67 /* main.m in Sources */,
 				2099FD51196AFCC5005062F0 /* KASimpleSignUpInViewController.m in Sources */,
 				203B16BB19888F3E00AD36A6 /* KAServerExtensionViewController.m in Sources */,
+				20D415EE198E408400E170B8 /* KAPOIGeoBoxViewController.m in Sources */,
 				209AD7B8196C40F400DE5235 /* KAUserAttributesViewController.m in Sources */,
 				2099FD5B196B116A005062F0 /* KASignUpViewController.m in Sources */,
 				2099FD57196AFFF9005062F0 /* iToast.m in Sources */,
@@ -488,6 +517,7 @@
 				203B16A619877A1700AD36A6 /* KAABTestingViewController.m in Sources */,
 				20D6185F196F4ADD00AF8A4A /* KASNSIntegrateViewController.m in Sources */,
 				209AD7BB196C480E00DE5235 /* KALogoutDeleteUserViewController.m in Sources */,
+				20D415F1198E409B00E170B8 /* KAPOIDistanceViewController.m in Sources */,
 				20E91E06196B5F8A0062B9EF /* KASignInViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
