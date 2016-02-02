@@ -89,9 +89,6 @@
         [Kii beginWithID:global.currentApp.appId
                   andKey:global.currentApp.appKey
                  andSite:global.currentApp.site];
-        [KiiAnalytics beginWithID:global.currentApp.appId
-                           andKey:global.currentApp.appKey
-                          andSite:global.currentApp.analyticsSite];
         [global setToken:@""];
     }
 }

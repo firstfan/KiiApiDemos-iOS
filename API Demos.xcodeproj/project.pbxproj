@@ -38,7 +38,6 @@
 		20968B121963E48B0021BBE2 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20968B111963E48B0021BBE2 /* ImageIO.framework */; };
 		20968B141963E4930021BBE2 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 20968B131963E4930021BBE2 /* libsqlite3.dylib */; };
 		20968B161963E4A90021BBE2 /* KiiSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20968B151963E4A90021BBE2 /* KiiSDK.framework */; };
-		20968B181963E4B70021BBE2 /* KiiAnalytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20968B171963E4B70021BBE2 /* KiiAnalytics.framework */; };
 		2099FD51196AFCC5005062F0 /* KASimpleSignUpInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2099FD50196AFCC5005062F0 /* KASimpleSignUpInViewController.m */; };
 		2099FD57196AFFF9005062F0 /* iToast.m in Sources */ = {isa = PBXBuildFile; fileRef = 2099FD54196AFFF9005062F0 /* iToast.m */; };
 		2099FD58196AFFF9005062F0 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 2099FD56196AFFF9005062F0 /* MBProgressHUD.m */; };
@@ -116,7 +115,6 @@
 		20968B111963E48B0021BBE2 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		20968B131963E4930021BBE2 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		20968B151963E4A90021BBE2 /* KiiSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = KiiSDK.framework; sourceTree = "<group>"; };
-		20968B171963E4B70021BBE2 /* KiiAnalytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = KiiAnalytics.framework; sourceTree = "<group>"; };
 		2099FD4F196AFCC5005062F0 /* KASimpleSignUpInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KASimpleSignUpInViewController.h; sourceTree = "<group>"; };
 		2099FD50196AFCC5005062F0 /* KASimpleSignUpInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KASimpleSignUpInViewController.m; sourceTree = "<group>"; };
 		2099FD53196AFFF9005062F0 /* iToast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iToast.h; sourceTree = "<group>"; };
@@ -161,7 +159,6 @@
 				20968B141963E4930021BBE2 /* libsqlite3.dylib in Frameworks */,
 				20968B121963E48B0021BBE2 /* ImageIO.framework in Frameworks */,
 				20968B101963E4830021BBE2 /* Security.framework in Frameworks */,
-				20968B181963E4B70021BBE2 /* KiiAnalytics.framework in Frameworks */,
 				20968B0E1963E47B0021BBE2 /* Social.framework in Frameworks */,
 				20968B0C1963E4730021BBE2 /* Accounts.framework in Frameworks */,
 				20968B0A1963E46B0021BBE2 /* MobileCoreServices.framework in Frameworks */,
@@ -250,7 +247,6 @@
 			isa = PBXGroup;
 			children = (
 				20D415EA198E32FB00E170B8 /* CoreLocation.framework */,
-				20968B171963E4B70021BBE2 /* KiiAnalytics.framework */,
 				20968B151963E4A90021BBE2 /* KiiSDK.framework */,
 				20968B131963E4930021BBE2 /* libsqlite3.dylib */,
 				20968B111963E48B0021BBE2 /* ImageIO.framework */,
@@ -436,7 +432,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = KA;
-				LastUpgradeCheck = 0510;
+				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "Kii Inc.";
 				TargetAttributes = {
 					2054D0E61963E29C00F3CF67 = {
@@ -586,6 +582,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -650,6 +647,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "API Demos/API Demos-Prefix.pch";
 				INFOPLIST_FILE = "API Demos/API Demos-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = com.kii.apis;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -667,6 +665,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "API Demos/API Demos-Prefix.pch";
 				INFOPLIST_FILE = "API Demos/API Demos-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = com.kii.apis;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -688,6 +687,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "API DemosTests/API DemosTests-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.kii.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
@@ -706,6 +706,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "API Demos/API Demos-Prefix.pch";
 				INFOPLIST_FILE = "API DemosTests/API DemosTests-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.kii.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;

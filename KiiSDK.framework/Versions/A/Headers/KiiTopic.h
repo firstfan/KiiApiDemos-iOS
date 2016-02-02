@@ -8,9 +8,13 @@
 
 #import <Foundation/Foundation.h>
 #import "KiiPushSubscription.h"
+#import "KiiListResult.h"
 
 @class  KiiUser, KiiBucket, KiiGroup, KiiACL,KiiTopic,KiiPushMessage;
 typedef void (^KiiTopicBlock)(KiiTopic *topic, NSError *error);
+
+typedef void (^KiiTopicExistenceBlock)(KiiTopic *topic,BOOL isExists, NSError *error);
+
 /** Topic on Kii push notification service
  */
 @interface KiiTopic : NSObject<KiiSubscribable>
@@ -18,6 +22,9 @@ typedef void (^KiiTopicBlock)(KiiTopic *topic, NSError *error);
 
 /** Get the ACL handle for this topic. Any <KiiACLEntry> objects added or revoked from this ACL object will be appended to/removed from the server on ACL save. */
 @property (readonly) KiiACL *topicACL;
+
+/** Name of the topic */
+@property (nonatomic, readonly) NSString* name;
 
 /** Asynchronously saves the topic to the server
  
@@ -48,13 +55,13 @@ typedef void (^KiiTopicBlock)(KiiTopic *topic, NSError *error);
             // there was a problem
         }
     }
- 
+
  */
 - (void) save:(id)delegate withCallback:(SEL)callback;
 
 
 /** Synchronously saves the latest topic values to the server
- 
+
  If the topic does not yet exist, it will be created. If the topic already exists, an error (code 704) will be returned. This is a blocking method.
  @param error An NSError topic, set to nil, to test for errors
  */
@@ -151,6 +158,30 @@ If the topic does not exist, an error (code 705) will be returned.  This is a no
  @param error An NSError topic, set to nil, to test for errors
  */
 -(void) sendMessageSynchronous:(KiiPushMessage*) message withError:(NSError**) error;
+/**Checks whether the topic already exists or not. This is blocking method.
 
+@param error On input, a pointer to an error object. If an error occurs, this pointer is set to an actual error object containing the error information. You can not specify nil for this parameter or it will cause runtime error.
+@return YES if the topic is exist, NO otherwise.
+*/
+-(BOOL) checkIfExistsSynchronous:(NSError**) error;
 
+/** Asynchronously checks whether the topic already exists or not.
+
+ This is a non-blocking method.
+ If the topic does not exist, no error will be returned.
+
+    [obj checkIfExists:^(KiiTopic *topic, BOOL isExists, NSError *error) {
+        if(error == nil) {
+            if(isExists) {
+                NSLog(@"Topic exists");
+            }
+        }else {
+            // handle error here
+        }
+    }];
+
+ @param completion The block to be called upon method completion, this is mandatory. See example.
+ @exception NSInvalidArgumentException if completion is nil.
+ */
+-(void) checkIfExists:(KiiTopicExistenceBlock) completion;
 @end

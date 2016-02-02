@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <KiiSDK/Kii.h>
-#import <KiiAnalytics/KiiAnalytics.h>
+#import <KiiSDK/KiiAnalytics.h>
 
 @interface KAAppConfig : NSObject
 

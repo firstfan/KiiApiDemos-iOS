@@ -43,7 +43,7 @@ typedef void(^KiiRTransferBlock)(id<KiiRTransfer> transferObject, NSError *error
     }
 
  @param KiiRTransferBlock progress block, can be nil.
- @param error An NSError object, set to nil, to test for errors.
+ @param error On input, a pointer to an error object. If an error occurs, this pointer is set to an actual error object containing the error information. You can not specify nil for this parameter or it will cause runtime error.
  @warning This API access to server. Should not be executed in UI/Main thread.
  */
 -(void) transferWithProgressBlock:(KiiRTransferBlock) progress andError:(NSError**) error;
@@ -72,14 +72,14 @@ typedef void(^KiiRTransferBlock)(id<KiiRTransfer> transferObject, NSError *error
 /** Suspend transfer process.
  Does not blocks until the completion of suspend.
  Completion of suspend is notified in completion block. If the transfer is on the way of sending a chunk, that chunk will be transferred and progress block is called before suspend notified.
- @param error An NSError object, set to nil, to test for errors.
+ @param error On input, a pointer to an error object. If an error occurs, this pointer is set to an actual error object containing the error information. You can not specify nil for this parameter or it will cause runtime error.
  */
 -(void) suspend:(NSError**) error;
 
 
 /** Synchronously terminate transfer process.
  This is blocking method.
- @param error An NSError object, set to nil, to test for errors.
+ @param error On input, a pointer to an error object. If an error occurs, this pointer is set to an actual error object containing the error information. You can not specify nil for this parameter or it will cause runtime error.
  */
 -(void) terminate:(NSError**) error;
 

@@ -12,7 +12,7 @@
 
 @class KiiObject, KiiCallback, KiiFile;
 
-typedef enum { KiiRequestGET, KiiRequestPUT, KiiRequestPOST, KiiRequestFORMPOST, KiiRequestDELETE , KiiRequestHEAD } KiiRequestHttpMethods;
+typedef enum { KiiRequestGET, KiiRequestPUT, KiiRequestPOST, KiiRequestFORMPOST, KiiRequestDELETE , KiiRequestHEAD, KiiRequestPATCH } KiiRequestHttpMethods;
 
 @interface KiiRequest : NSObject {
         
@@ -24,6 +24,7 @@ typedef enum { KiiRequestGET, KiiRequestPUT, KiiRequestPOST, KiiRequestFORMPOST,
     NSValue *operation;
     
     KiiObject *mObject;
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
     KiiFile *mFile;
     
     NSString *filePath;
@@ -34,6 +35,7 @@ typedef enum { KiiRequestGET, KiiRequestPUT, KiiRequestPOST, KiiRequestFORMPOST,
 @property (nonatomic, strong) NSValue *operation;
 
 @property (nonatomic, strong) KiiCallback *callback;
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
 @property (nonatomic, unsafe_unretained) KiiFileProgressBlock progressBlock;
 @property (nonatomic, strong) KiiFile *mFile;
 @property (nonatomic, strong) NSData *fileData;
@@ -55,8 +57,6 @@ typedef enum { KiiRequestGET, KiiRequestPUT, KiiRequestPOST, KiiRequestFORMPOST,
 @property (nonatomic, assign) BOOL isChunkUpload;
 @property (nonatomic, assign) BOOL isChunkDownload;
 @property (nonatomic, assign) long long uploadFileSize;
-
-
 
 @property (nonatomic,copy,readonly) NSDictionary *responseHeaders;
 

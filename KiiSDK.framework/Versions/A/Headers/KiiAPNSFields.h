@@ -39,6 +39,9 @@
  Otherwise, content-available=1 payload is delivered. */
 @property(nonatomic,strong) NSNumber* contentAvailable;
 
+/** String. Not required. Encapsulation of category key on APNS property.
+ */
+@property(nonatomic,strong) NSString* category;
 /** Define APNS specific metadata
  @param dict a Dictionary object contains one level json dictionary data
  */

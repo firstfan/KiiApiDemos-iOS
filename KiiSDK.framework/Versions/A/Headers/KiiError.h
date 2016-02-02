@@ -16,10 +16,11 @@
  - *102* - The application was not found on the server. Please ensure your app id and key were entered correctly.
  - *103* - The required operation is failed due to unexpected error. Should not thrown if using latest SDK.
 
- <h3>Connectivity Errors (2xx)</h3>
+ <h3>Connectivity and Requests Errors (2xx)</h3>
  - *201* - Unable to connect to the internet
  - *202* - Unable to parse server response
  - *203* - Unable to authorize request
+ - *204* - Invalid input data, the given parameter and/or data is not valid.
  
  <h3>User API Errors (3xx)</h3>
  - *301* - Unable to retrieve valid access token
@@ -34,7 +35,7 @@
  - *310* - Invalid displayname format. The displayname length is 4-50 chars (not byte), and allow Multi-Byte input.
  - *311* - The user's email was unable to be updated on the server
  - *312* - The user's phone number was unable to be updated on the server
- - *313* - Invalid email address format or phone number format. A userIdentifier must be one of the two
+ - *313* - Invalid format of userIdentifier.
  - *314* - The request could not be made - the key associated with the social network is invalid
  - *315* - Invalid country code.
  - *316* - Invalid local phone format. The phone number numerical and must be at least 7 digits
@@ -47,6 +48,15 @@
  - *323* - Unsupported Application structure. Server-side authentication needs rootViewController to be assigned on Application main window.
  - *324* - User not found. The User object that is processed by the request is not available on the cloud.
  - *325* - Group not found. The Group object that is processed by the request is not available on the cloud.
+ - *326* - Local phone number requires country code.
+ - *327* - Non logged-in user can not use this method.
+ - *328* -
+ - *329* - Invalid user status, the user should have either verified email or phone number.
+ - *330* - Fail to refresh access token;
+ - *331* - Valid stored user not found;
+ - *332* - ACAccount authentication is not granted by user
+ - *333* - ACAccount is not set by user
+ - *340* - User is not logged, this operations does not allow anonymous user.
  
  <h3>File API Errors (4xx)</h3>
  - *401* - Unable to delete file from cloud
@@ -79,7 +89,11 @@
  - *520* - File URL is not readable.
  - *521* - Invalid expiration date. It must be on the future.
  - *522* - Invalid expiration interval, should be greather than 0.
- 
+ - *523* - User has no refresh token
+ - *524* - Valid group ID is a string composed of 1 to 100 characters include lower-case letters (a-z), numbers (0-9) and '.', '-', '_'.
+ - *525* - Members must be an array of <KiiUser> objects.
+ - *526* - Same ID group already exists.
+
  <h3>Query Errors (6xx)</h3>
  - *601* - No more query results exist
  - *602* - Query limit set too high
@@ -127,14 +141,29 @@
  - *905* - Variation with specified name is not found.
  - *906* - Failed to apply variation due to no user logged in.
 
-  <h3>PhotoColle Errors (10xx)</h3>
+ <h3>PhotoColle Errors (10xx)</h3>
  - *1001* - Unsupported MIME type for PhotoColle transfer.
+
+ <h3>Thing Errors (11xx)</h3>
+ - *1101* - Specified Thing is not found on the cloud.
+ - *1102* - Specified Thing owner's (user/group) is not found on the cloud.
+ - *1103* - Thing ownership for the given owner's (user/group) already exists.
+ - *1104* - Thing ownership for the given owner's (user/group) does not exist.
+ - *1105* - Thing already exists.
+ - *1106* - Invalid input data for thing's field.
+ 
+ 
+  <h3> Keychain Storage errors (12xx)</h3>
+ - *1201* - >Unexpected Keychain errors.
+ - *1202* - >Failed to unarchived object.
+ - *1203* - >Failed to archived object.
+ - *1204* - >Keychian item not found.
+ - *1205* - >Not allowed to access keychain item.
 
  */
 @interface KiiError : NSError
 
 #pragma mark - static factory
-+ (NSError*) errorWithServerCode:(NSString*)code andServerMessage:(NSString*)message;
 
 + (NSError*) errorWithCode:(NSInteger)code userInfo:(NSDictionary*)userInfo;
 
@@ -149,7 +178,7 @@
 + (NSInteger) codeAppNotFound;
 
 /* The required operation is failed due to unexpected error. Should not thrown if using latest SDK. */
-+ (NSError*) undefinedError;
+
 + (NSInteger) codeUndefinedError;
 
 #pragma mark - 200 codes (Connectivity Errors)
@@ -182,7 +211,7 @@
 /* Invalid email format. Email must be a valid address */
 + (NSInteger) codeInvalidEmailFormat;
 
-/* Invalid email address format or phone number format. A userIdentifier must be one of the two */
+/* Invalid format of userIdentifier */
 + (NSInteger) codeInvalidUserIdentifier;
 
 /* Invalid username format. The username must be 3-64 alphanumeric characters - the first character must be a letter. */
@@ -241,6 +270,33 @@
 /* Group not found. The Group object that is processed by the request is not available on the cloud.*/
 + (NSInteger) codeGroupNotFound;
 
+/* Local phone number requires country code. */
++ (NSInteger) codeLocalPhoneRequiresCountryCode;
+
+/* Non logged-in user can not use this method. */
++ (NSInteger) codeNonLoggedInUserIsNotAllowed;
+
+/* Non pseudo user can not use this method. */
++ (NSInteger) codePseudoUserIsNotAllowed;
+
+/* Invalid user status, the user should have either verified email or phone number. */
++ (NSInteger) codeInvalidUserStatus;
+
+/* Fail to refresh acess token. */
++ (NSInteger) codeRefreshTokenFailed;
+
+/* Stored credentials is invalid. */
++ (NSInteger) codeValidStoredUserNotFound;
+
+/* ACAccount authentication is not granted by user*/
++ (NSInteger) codeForACAccountNotGranted;
+
+/* ACAccount is not set by user*/
++ (NSInteger) codeForACAccountNotSet;
+
+/* User is not logged, this operations does not allow anonymous user. */
++ (NSInteger) codeLoginRequired;
+
 #pragma mark - 400 codes (File API Errors)
 /* File API Errors (4xx) */
 
@@ -255,9 +311,6 @@
 
 /* Unable to shred file. Must be in the trash before it is permanently deleted. */
 + (NSInteger) codeShreddedFileMustBeInTrash;
-
-/* Unable to perform operation - a valid container must be set first. */
-+ (NSError*) fileContainerNotSpecified;
 
 /* Insufficient space in cloud to store data */
 + (NSInteger) codeFileContainerNotSpecified;
@@ -330,6 +383,19 @@
 
 /* Invalid interval, should be greater than zero */
 + (NSInteger) codeIntervalZero;
+
+/* User has no refresh token */
++ (NSInteger) codeNonRefreshToken;
+
+/* Valid group ID is a string composed of 1 to 100 characters include
+   lower-case letters (a-z), numbers (0-9) and '.', '-', '_'. */
++ (NSInteger) codeInvalidGroupID;
+
+/* Members must be an array of <KiiUser> objects. */
++ (NSInteger) codeMemberIsNotKiiUser;
+
+/* Same ID group already exists. */
++ (NSInteger) codeGroupAlreadyExists;
 
 #pragma mark - 600 codes (Query errors)
 /* Query Errors (6xx) */
@@ -469,4 +535,76 @@
 /* Unsupported MIME type for PhotoColle transfer. */
 + (NSInteger) codeUnsupportedMIMETypeForPhotoColleTransfer;
 
+#pragma mark - 1100 codes (Thing errors)
+
+/** Specified Thing is not found on the cloud.*/
++ (NSInteger) codeThingNotFound;
+
+/** Specified Thing owner's (user/group) is not found on the cloud.*/
++ (NSInteger) codeThingOwnerNotFound;
+
+
+/** Thing ownership for the given owner's (user/group) does not exist.*/
++ (NSInteger) codeThingOwnershipNotFound;
+
+/** Thing ownership for the given owner's (user/group) already exists.*/
++ (NSInteger) codeThingOwnershipExist;
+
+/** Thing already exists.*/
++ (NSInteger) codeThingExist;
+
+/** Invalid input data for thing's field.*/
++ (NSInteger) codeThingInvalidData;
+/* Keychain storage errors (11XX) */
+
+/* Unexpected KeyChain error happends. */
++ (NSInteger) codeUnexpectedKeyChainError;
+
+/* Failed to unarchived object */
++ (NSInteger) codeFailedToUnarchived;
+
+/* Failed to archived object */
++ (NSInteger) codeFailedToArchived;
+
+/* No keychain item found */
++ (NSInteger) codeNonKeychainItemFound;
+
+/* Accessing keychian item is not allowed */
++ (NSInteger) codeKeyChainAccessIsNotAllowed;
+
+/* Input data is invalid */
++ (NSInteger) codeInvalidRequestData;
+
+@end
+
+#pragma mark - 
+#pragma mark NSError Kii Categories
+
+@interface NSError (KiiError)
+
+/** Error summary returned from Kii Cloud. Please refer to Kii Cloud REST API [documentation](http://docs.kii.com/rest/) for the details.
+ 
+ The corresponding field is 'errorCode' in the response body.
+ This methods is equals to error.userInfo[@"server_code"].
+ 
+ @return Error summary returned from Kii Cloud or nil if the error is not returned
+ from Kii Cloud (network/ validation error, etc.).
+ */
+-(NSString*) kiiErrorSummary;
+
+/** Error message from the server, please refer to Kii API REST [documentation](http://docs.kii.com/rest/) for the details.
+ 
+ This methods is equals to error.userInfo[@"server_message"].
+ 
+ @return Code from cloud server or nil if it there is no error message returned from from Kii Cloud (network/ validation error, etc.).
+ */
+-(NSString*) kiiErrorMessage;
+
+/** HTTP response code returned from Kii Cloud, please refer to Kii API REST [documentation](http://docs.kii.com/rest/) for the details.
+ 
+ This methods is equals to error.userInfo[@"http_status"].
+ 
+ @return HTTP response code from the cloud or 0 if the error is not returned from Kii Cloud (network/ validation error, etc.).
+ */
+-(NSInteger) kiiHttpStatus;
 @end

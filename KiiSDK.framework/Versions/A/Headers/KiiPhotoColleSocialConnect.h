@@ -99,6 +99,10 @@
  are logged out. New user logs into KiiCloud and the new user is
  linked to PhotoColle network.
 
+ If successful, the user is cached inside SDK as current user,and accessible via <[KiiUser currentUser]>.
+ User token is also cached and can be get by <[KiiUser accessToken]>.
+ Access token won't be expired unless you set it explicitly by <[Kii setAccessTokenExpiration:]>
+ 
  Termination of authentication process is notified by
  completion block. Example of the block is following:
 
@@ -199,7 +203,7 @@
    * <[KiiPhotoColleSocialConnect logInOnNavigationController:withBlock:]> or <[KiiPhotoColleSocialConnect linkCurrentUserOnNavigationController:withBlock:]> has been executed and succeeded.
    * Current login user's photocolle token has been stored.
 
-   Otherwise, returns null.
+   Otherwise, returns nil.
  */
 - (KiiCloudPhotoColle *)kiiCloudPhotoColle;
 

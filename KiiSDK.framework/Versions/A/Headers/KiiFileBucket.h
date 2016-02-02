@@ -81,7 +81,7 @@ __attribute__((deprecated("Use KiiBucket instead.")))
  
  The query will be executed against the server, returning a result set. This is a blocking method
  @param query The query to execute
- @param error An NSError object, set to nil, to test for errors
+ @param error On input, a pointer to an error object. If an error occurs, this pointer is set to an actual error object containing the error information. You can not specify nil for this parameter or it will cause runtime error.
  @return An NSArray of objects returned by the query
  @deprecated This method is deprecated. Use <[KiiBucket executeQuerySynchronous:withError:andNext:]> instead.
  */
@@ -133,7 +133,7 @@ __attribute__((deprecated("Use KiiBucket instead.")))
 /** Synchronously deletes a file bucket from the server.
  
  Delete a file bucket from the server. This method is blocking.
- @param error An NSError object, set to nil, to test for errors
+ @param error On input, a pointer to an error object. If an error occurs, this pointer is set to an actual error object containing the error information. You can not specify nil for this parameter or it will cause runtime error.
  @deprecated This method is deprecated. Use <[KiiBucket deleteSynchronous:]> instead.
  */
 - (void) deleteSynchronous:(NSError**)error __attribute__((deprecated("Use [KiiBucket deleteSynchronous:] instead.")));

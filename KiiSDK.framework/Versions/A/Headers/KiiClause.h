@@ -15,15 +15,22 @@
  */
 @interface KiiClause : NSObject 
 
+#ifndef KII_SWIFT_ENVIRONMENT
+// exclude for swift
 /** Create a KiiClause with the AND operator concatenating multiple KiiClause objects
  @param clause A nil-terminated list of KiiClause objects to concatenate
+ @deprecated This method is deprecated. Use <[KiiClause andClauses:]> instead.
  */
-+ (KiiClause*) and:(KiiClause*)clause, ...;
++ (KiiClause*) and:(KiiClause*)clause, ... __attribute__((deprecated("Use [KiiClause andClauses:] instead.")));
 
 /** Create a KiiClause with the OR operator concatenating multiple KiiClause objects
  @param clause A nil-terminated list of KiiClause objects to concatenate
+ @deprecated This method is deprecated. Use <[KiiClause andClauses:]> instead.
  */
-+ (KiiClause*) or:(KiiClause*)clause, ...;
++ (KiiClause*) or:(KiiClause*)clause, ... __attribute__((deprecated("Use [KiiClause orClauses:] instead.")));
+
+#endif
+
 
 /** Create an expression of the form key = value
  @param key The key to compare
@@ -104,7 +111,7 @@
   @param key name of the key to inquire, which holds geo point.
   @param center geo point which specify center of the circle.
   @param radius of the circle. unit is meter. value should be in range of ]0, 20000000]
-  @param calculatedDistance used for retrieve distance from the center from the query result. If the specified value is null, query result will not contain the distance.
+  @param calculatedDistance used for retrieve distance from the center from the query result. If the specified value is nil, query result will not contain the distance.
  Note: You can get the results in ascending order of distances from center. To do so, build the orderBy field  by "_calculated.{specified value of calculatedDistance}" and pass it in <[KiiQuery sortByAsc:]> Note that, descending order of distances is not supported. The unit of distance is meter.
 
     NSString* calculatedDistance = @"distanceFromCurrentLoc";

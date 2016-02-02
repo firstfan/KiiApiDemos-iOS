@@ -139,14 +139,14 @@ If you use <KiiVariationSamplerByKiiUser> with current login user, it will be sa
 
 /** Get the description of the experiment.
  */
-@property(nonatomic,readonly) NSString* description;
+@property(nonatomic,readonly) NSString* experimentDescription;
 
 /** Get all conversion events in this experiment.
  */
 @property(nonatomic,readonly) NSArray* conversionEvents;
 
 /** Returns chosen variation if the experiment has finished with specified variation.
- @return Variation chosen or null if when the no variation has not been chosen.
+ @return Variation chosen or nil if when the no variation has not been chosen.
  */
 @property(nonatomic,readonly) KiiVariation* chosenVariation;
 

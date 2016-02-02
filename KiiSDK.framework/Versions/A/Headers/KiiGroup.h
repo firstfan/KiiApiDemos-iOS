@@ -7,8 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "KiiThingOwner.h"
+#import "KiiTopic.h"
+#import "KiiListResult.h"
 
-@class KiiUser, KiiBucket, KiiGroup,KiiTopic;
+@class KiiUser, KiiBucket, KiiGroup,KiiEncryptedBucket;
 
 typedef void (^KiiGroupMemberBlock)(KiiGroup *group, NSArray *members, NSError *error);
 typedef void (^KiiGroupOwnerBlock)(KiiGroup *group, KiiUser *owner, NSError *error);
@@ -16,10 +19,14 @@ typedef void (^KiiGroupBlock)(KiiGroup *group, NSError *error);
 
 
 /** A reference to a group of users within the application */
-@interface KiiGroup : NSObject 
+@interface KiiGroup : NSObject<KiiThingOwner>
 
 /** The name of the group */
 @property (readonly) NSString *name;
+
+/** The ID of the KiiGroup, assigned by the server.*/
+@property (readonly) NSString *groupID;
+
 
 /** Get a specifically formatted string referencing the group. The group must exist in the cloud (have a valid UUID). */
 @property (strong, readonly) NSString *objectURI;
@@ -52,6 +59,15 @@ typedef void (^KiiGroupBlock)(KiiGroup *group, NSError *error);
  */
 + (KiiGroup*) groupWithURI:(NSString*)groupURI;
 
+/** Instantiate KiiGroup that refers to existing group which has specified ID.
+ 
+ You have to specify the ID of existing KiiGroup. Unlike KiiObject,
+ you can not assign ID in the client side.
+ @note This API does not access to the server.After instantiation, it should be 'refreshed' to fetch the properties from server.
+ @param groupID ID of the KiiGroup to instantiate.
+ @return instance of KiiGroup.
+ */
++ (KiiGroup*) groupWithID:(NSString*)groupID;
 
 /** Creates a reference to a bucket that is within the group's scope
  
@@ -60,6 +76,15 @@ typedef void (^KiiGroupBlock)(KiiGroup *group, NSError *error);
  @return An instance of a working <KiiBucket>
  */
 - (KiiBucket*) bucketWithName:(NSString*)bucketName;
+
+/** Get or create an encrypted bucket at the group level.
+ 
+ @param bucketName The name of the encrypted bucket you'd like to use.
+ @return An instance of a working <KiiEncryptedBucket>
+ @exception NSInvalidArgumentException when bucketName is not acceptable format. For details please refer to <[KiiBucket isValidBucketName:(NSString*) bucketName]>.
+ */
+- (KiiEncryptedBucket*) encryptedBucketWithName:(NSString*)bucketName;
+
 
 /** Get or create a Push notification topic at the group level
  
@@ -104,7 +129,7 @@ typedef void (^KiiGroupBlock)(KiiGroup *group, NSError *error);
 /** Gets a list of all current members of a group
  
  Returns an array of <KiiUser> objects if successful. This method is blocking.
- @param error An NSError object, set to nil, to test for errors
+ @param error On input, a pointer to an error object. If an error occurs, this pointer is set to an actual error object containing the error information. You can not specify nil for this parameter or it will cause runtime error.
  @return An NSArray of <KiiUser> objects
  */
 - (NSArray*) getMemberListSynchronous:(NSError**)error;
@@ -151,7 +176,7 @@ typedef void (^KiiGroupBlock)(KiiGroup *group, NSError *error);
 /** Gets the owner of the associated group
  
  Returns a <KiiUser> object for this group's owner. This is a blocking method.
- @param error An NSError object, set to nil, to test for errors
+ @param error On input, a pointer to an error object. If an error occurs, this pointer is set to an actual error object containing the error information. You can not specify nil for this parameter or it will cause runtime error.
  @return A <KiiUser> object representing the current group's owner
  */
 - (KiiUser*) getOwnerSynchronous:(NSError**)error;
@@ -208,7 +233,7 @@ typedef void (^KiiGroupBlock)(KiiGroup *group, NSError *error);
 /** Synchronously updates the local object's data with the object data on the server
  
  The group must exist on the server. Local data will be overwritten. This is a blocking method.
- @param error An NSError object, set to nil, to test for errors
+ @param error On input, a pointer to an error object. If an error occurs, this pointer is set to an actual error object containing the error information. You can not specify nil for this parameter or it will cause runtime error.
  */
 - (void) refreshSynchronous:(NSError**)error;
 
@@ -252,7 +277,7 @@ typedef void (^KiiGroupBlock)(KiiGroup *group, NSError *error);
 /** Synchronously saves the latest group information to the server
  
  If the group does not yet exist, it will be created. If the group already exists, the information that has changed will be updated accordingly. This is a blocking method.
- @param error An NSError object, set to nil, to test for errors
+ @param error On input, a pointer to an error object. If an error occurs, this pointer is set to an actual error object containing the error information. You can not specify nil for this parameter or it will cause runtime error.
  */
 - (void) saveSynchronous:(NSError**)error;
 
@@ -296,7 +321,7 @@ typedef void (^KiiGroupBlock)(KiiGroup *group, NSError *error);
 /** Synchronously deletes a group from the server.
  
  Delete a group from the server. This method is blocking.
- @param error An NSError object, set to nil, to test for errors
+ @param error On input, a pointer to an error object. If an error occurs, this pointer is set to an actual error object containing the error information. You can not specify nil for this parameter or it will cause runtime error.
  */
 - (void) deleteSynchronous:(NSError**)error;
 
@@ -342,7 +367,7 @@ typedef void (^KiiGroupBlock)(KiiGroup *group, NSError *error);
  
  This method is blocking.
  @param groupName An NSString of the desired group name
- @param error An NSError object, set to nil, to test for errors
+ @param error On input, a pointer to an error object. If an error occurs, this pointer is set to an actual error object containing the error information. You can not specify nil for this parameter or it will cause runtime error.
  */
 - (void) changeGroupNameSynchronous:(NSString*)groupName withError:(NSError**)error;
 
@@ -378,5 +403,129 @@ typedef void (^KiiGroupBlock)(KiiGroup *group, NSError *error);
  */
 - (void) describe;
 
+/**Returns the topics in this group scope. This is blocking method.
+ @param error On input, a pointer to an error object. If an error occurs, this pointer is set to an actual error object containing the error information. You can not specify nil for this parameter or it will cause runtime error.
+ @return  a <KiiListResult> object representing list of topics in this group scope.
+ */
+- (KiiListResult*) listTopicsSynchronous:(NSError**) error;
+
+/**Returns the topics in this group scope. This is blocking method.
+ @param error On input, a pointer to an error object. If an error occurs, this pointer is set to an actual error object containing the error information. You can not specify nil for this parameter or it will cause runtime error.
+ @param paginationKey pagination key. If nil or empty value is specified, this API regards no paginationKey specified.
+ @return  a <KiiListResult> object representing list of topics in this group scope.
+ */
+- (KiiListResult*) listTopicsSynchronous:(NSString*) paginationKey error:(NSError**) error;
+
+/**Returns the topics in this group scope asynchronously.
+
+ Receives a <KiiListResult> object representing list of topics. This is a non-blocking request.
+
+    [g listTopics:^(KiiListResult *topics, id callerObject, NSError *error){
+       //at this scope, callerObject should be KiiGroup instance
+       NSLog(@"%@",callerObject);
+       if(error == nil) {
+            NSLog(@"Got Results: %@", topics);
+            NSLog(@"Total topics: %@", topics.results.count);
+            NSLog(@"Has Next: %@ next paginationKey: %@", topics.hasNext?@"Yes":@"No", topics.paginationKey);
+            KiiTopic *firstTopic = topics.result.firstObject;
+            if (firstTopic){
+                NSLog(@"topic name :%@", firstTopic.name);
+            }
+       }
+    }];
+
+ @param completion The block to be called upon method completion, this is mandatory. See example.
+ @exception NSInvalidArgumentException if completion is nil.
+ */
+- (void) listTopics:(KiiListResultBlock) completion;
+
+/**Returns the topics in this group scope asynchronously.
+
+ Receives a <KiiListResult> object representing list of topics. This is a non-blocking request.
+
+    [g listTopics:paginationKey block:^(KiiListResult *topics, id callerObject, NSError *error){
+       //at this scope, callerObject should be KiiGroup instance
+       NSLog(@"%@",callerObject);
+       if(error == nil) {
+            NSLog(@"Got Results: %@", topics);
+            NSLog(@"Total topics: %@", topics.results.count);
+            NSLog(@"Has Next: %@ next paginationKey: %@", topics.hasNext?@"Yes":@"No", topics.paginationKey);
+            KiiTopic *firstTopic = topics.result.firstObject;
+            if (firstTopic){
+                NSLog(@"topic name :%@", firstTopic.name);
+            }
+       }
+    }];
+
+ @param paginationKey pagination key. If nil or empty value is specified, this API regards no paginationKey specified.
+ @param completion The block to be called upon method completion, this is mandatory. See example.
+ @exception NSInvalidArgumentException if completion is nil.
+ */
+- (void) listTopics:(NSString*) paginationKey block:(KiiListResultBlock) completion;
+
+/** Register new group with the specified ID. The registered group is owned by current user.
+
+ NOTE: This api access to server. Should not be executed in UI/Main thread.
+
+ @param groupID id of the KiiGroup. This groupID is mandatory. must
+ not be nil or empty.
+ @param name Name of the KiiGroup. name is mandatory. must not be nil
+ or empty.
+ @param members Members of the group. Group owner will be added as a
+ group member no matter owner is in the list or not. members are
+ optional. This can be nil. Contents of members must be <[KiiUser]>
+ object.
+ @param error On input, a pointer to an error object. If an error
+ occurs, this pointer is set to an actual error object containing the
+ error information. You can specify nil if you want to skip checking
+ error. But we recommend you to check error and handle it properly.
+ to check error.
+
+ - If response can not be parsed, error code 202 is returned.
+ - If access token is invalid, error code 203 is returned.
+ - If user is not logged in, error code 327 is returned.
+ - If name is invalid, error code 513 is returned.
+ - If groupID is invalid, error code 524 is returned.
+ - If contents of members is not <KiiUser> instance, error code 525 is returned.
+ - If group id is already exists, error code 526 is returned.
+
+ @return KiiGroup instance.
+*/
++ (KiiGroup*)registerGroupSynchronousWithID:(NSString*)groupID
+                                       name:(NSString*)name
+                                    members:(NSArray*)members
+                                      error:(NSError**)error;
+
+/** Asynchronous call for <[KiiGroup
+ registerGroupSynchronousWithID:name:members:error:]>, A background task will be
+ initiated to execute the task.
+
+
+     [KiiGroup registerGroupWithID:@"your group id"
+                              name:@"your group name"
+                           members:groupArray
+                             block:^(KiiGroup *group, NSError *error) {
+             if(error == nil) {
+                 NSLog(@"Group saved: %@", group);
+             }
+     }];
+
+
+ @param groupID id of the KiiGroup. This groupID is mandatory. must
+ not be nil or empty.
+ @param name Name of the KiiGroup. name is mandatory. must not be nil
+ or empty.
+ @param members Members of the group. Group owner will be added as a
+ group member no matter owner is in the list or not. members are
+ optional. This can be nil. Contents of members must be <[KiiUser]>
+ object.
+ @param block The block to be called upon method completion. block is
+ mandatory. must not be nil. See example.
+ @exception NSInvalidArgumentException if block is nil.
+*/
++ (void)registerGroupWithID:(NSString*)groupID
+                       name:(NSString*)name
+                    members:(NSArray*)members
+                      block:(KiiGroupBlock)block;
 
 @end

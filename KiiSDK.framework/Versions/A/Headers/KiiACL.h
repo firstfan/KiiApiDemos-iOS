@@ -36,7 +36,7 @@ typedef void (^KiiACLSaveBlock)(KiiACL *acl, NSArray *succeeded, NSArray *failed
 /** Get the list of active ACLs associated with this object from the server
  
  This is a blocking method
- @param error An NSError object, set to nil, to test for errors
+ @param error On input, a pointer to an error object. If an error occurs, this pointer is set to an actual error object containing the error information. You can not specify nil for this parameter or it will cause runtime error.
  @return An array of <KiiACLEntry> objects
  */
 - (NSArray*) listACLEntriesSynchronous:(NSError**)error; 
@@ -102,7 +102,7 @@ typedef void (^KiiACLSaveBlock)(KiiACL *acl, NSArray *succeeded, NSArray *failed
 /** Save the list of ACLEntry objects associated with this ACL object to the server
  
  This is a blocking method
- @param error An NSError object, set to nil, to test for errors. If this error shows partial success, one or more of the ACL entries was unsuccessfully saved - check the succeeded/failed parameters.
+ @param error On input, a pointer to an error object. If an error occurs, this pointer is set to an actual error object containing the error information. You can not specify nil for this parameter or it will cause runtime error. If this error shows partial success, one or more of the ACL entries was unsuccessfully saved - check the succeeded/failed parameters.
  @param succeeded An NSArray object of <KiiACLEntry> objects that were successfully updated
  @param failed An NSArray object of <KiiACLEntry> objects that failed to update
  @note Subscribe or send message to topic is not supported for <KiiAnonymousUser>.

@@ -23,7 +23,7 @@
  on calling <[KiiRTransfer transferWithProgressBlock:andError:]> and deleted
  on completion/termination of upload.
  
- @param error An NSError object, set to nil, to test for errors
+ @param error On input, a pointer to an error object. If an error occurs, this pointer is set to an actual error object containing the error information. You can not specify nil for this parameter or it will cause runtime error.
  @return NSArray Upload entries array.
  */
 -(NSArray*) getUploadEntries:(NSError**) error;

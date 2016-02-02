@@ -11,7 +11,7 @@
 #import "MBProgressHUD.h"
 #import "iToast.h"
 #import "KAGlobal.h"
-#import <KiiAnalytics/KiiAnalytics.h>
+#import <KiiSDK/KiiAnalytics.h>
 
 @interface KAFlexAnalyticsViewController ()
 

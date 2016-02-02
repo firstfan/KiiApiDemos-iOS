@@ -11,7 +11,7 @@
 
 @class KiiQuery, KiiFileBucket, KiiFile, KiiACL,KiiUploader,KiiDownloader;
 
-typedef void (^KiiFileProgressBlock)(KiiFile *file, double progress) __attribute__((deprecated("Use KiiObjectBodyProgressBlock instead.")));
+typedef void (^KiiFileProgressBlock)(KiiFile *file, double progress)__attribute__((deprecated("Use KiiObjectBodyProgressBlock instead")));
 typedef void (^KiiFileBlock)(KiiFile *file, NSError *error) __attribute__((deprecated("Use KiiObjectBlock instead.")));
 typedef void (^KiiFileDownloadBlock)(KiiFile *file, NSString *toPath, NSError *error) __attribute__((deprecated("Use KiiObjectBodyCompletionBlock instead.")));
 typedef void (^KiiFilePublishBlock)(KiiFile* file, NSString *toURL, NSError *error) __attribute__((deprecated("Use KiiObjectPublishBodyBlock instead.")));

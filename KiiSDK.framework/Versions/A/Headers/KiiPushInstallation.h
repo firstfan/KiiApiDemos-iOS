@@ -80,7 +80,7 @@ Install APNS using deviceToken captured by Kii +(void) setAPNSDeviceToken. This 
  
  @param deviceToken device token that is given by APNS server.
  @param isDevelopmentMode YES if APNS development environment mode or NO for production mode.
- @param error An NSError object, set to nil, to test for errors.
+ @param error On input, a pointer to an error object. If an error occurs, this pointer is set to an actual error object containing the error information. You can not specify nil for this parameter or it will cause runtime error.
  @exception NSInvalidArgumentException Thrown if given deviceToken is nil.
  */
 +(KiiPushInstallation*)installSynchronousWithDeviceToken:(NSData*) deviceToken andDevelopmentMode:(BOOL) isDevelopmentMode andError:(NSError**) error;
@@ -88,7 +88,7 @@ Install APNS using deviceToken captured by Kii +(void) setAPNSDeviceToken. This 
 /** Synchronously installs APNS feature.
  Install APNS using deviceToken captured by Kii +(void) setAPNSDeviceToken. This method is blocking method.
  
- @param error An NSError object, set to nil, to test for errors
+ @param error On input, a pointer to an error object. If an error occurs, this pointer is set to an actual error object containing the error information. You can not specify nil for this parameter or it will cause runtime error.
  @deprecated This mehod is deprecated. Use <[KiiPushInstallation installSynchronousWithDeviceToken:andDevelopmentMode:andError:]> instead.
  */
 +(KiiPushInstallation*)installSynchronous:(NSError**) error __attribute__((deprecated("Use [KiiPushInstallation installSynchronousWithDeviceToken:andDevelopmentMode:andError:]")));
@@ -113,7 +113,7 @@ Install APNS using deviceToken captured by Kii +(void) setAPNSDeviceToken. This 
  Uninstall APNs using deviceToken captured by Kii +(void) setAPNSDeviceToken.
  This method is blocking method.
 
- @param error An NSError object, set to nil, to test for errors
+ @param error On input, a pointer to an error object. If an error occurs, this pointer is set to an actual error object containing the error information. You can not specify nil for this parameter or it will cause runtime error.
  @deprecated This mehod is deprecated. Use <[KiiPushInstallation uninstallSynchronousWithDeviceToken:andError:]> instead.
  */
 +(KiiPushInstallation*)uninstallSynchronous:(NSError**) error __attribute__((deprecated("Use [KiiPushInstallation uninstallSynchronousWithDeviceToken:andError:]")));
@@ -138,7 +138,7 @@ Install APNS using deviceToken captured by Kii +(void) setAPNSDeviceToken. This 
  This method is blocking method.
 
  @param deviceToken device token that is given by APNS server.
- @param error An NSError object, set to nil, to test for errors.
+ @param error On input, a pointer to an error object. If an error occurs, this pointer is set to an actual error object containing the error information. You can not specify nil for this parameter or it will cause runtime error.
  @exception NSInvalidArgumentException Thrown if given deviceToken is nil.
  */
 +(KiiPushInstallation*)uninstallSynchronousWithDeviceToken:(NSData*) deviceToken andError:(NSError**) error;

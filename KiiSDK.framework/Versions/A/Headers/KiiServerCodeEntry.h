@@ -19,7 +19,7 @@ typedef void(^KiiServerCodeExecBlock) (KiiServerCodeEntry* entry,KiiServerCodeEn
 /** Synchronously execute this server code entry.
  This is blocking method.
  @param argument  passed to the entry of script in the server.
- @param error An NSError object, set to nil, to test for errors.
+ @param error On input, a pointer to an error object. If an error occurs, this pointer is set to an actual error object containing the error information. You can not specify nil for this parameter or it will cause runtime error.
  @return Result of execution includes NSData returned from specified server code entry in KiiCloud.
  */
 -(KiiServerCodeExecResult*) executeSynchronous:(KiiServerCodeEntryArgument*) argument withError:(NSError**) error;
